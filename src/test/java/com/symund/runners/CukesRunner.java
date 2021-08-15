@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/symund/step_defs",
         dryRun = false,
-        tags = "@SYMU-328 or @SYMU-329"
+        tags = "@SYMU-332"
 )
 
 

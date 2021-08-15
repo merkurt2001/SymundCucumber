@@ -47,7 +47,7 @@ public class LoginStepDefs {
         LoginPage loginPage = new LoginPage();
         loginPage.userName.sendKeys(username);
         loginPage.password.sendKeys(password+ Keys.ENTER);
-        BrowserUtils.waitForVisibility(loginPage.errorMessage,5);
+        //BrowserUtils.waitForVisibility(loginPage.errorMessage,5);
 
     }
 
