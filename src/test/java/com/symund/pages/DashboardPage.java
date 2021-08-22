@@ -11,11 +11,7 @@ public class DashboardPage extends BasePage{
         PageFactory.initElements(Driver.get(), this);
     }
 
-    @FindBy(css = "div.avatardiv.avatardiv-shown")
-    public WebElement userStatus;
 
-    @FindBy(css = "span.user-status-menu-item__header")
-    public WebElement userProfile;
 
 
 

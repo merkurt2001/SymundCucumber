@@ -117,4 +117,37 @@ public class LoginStepDefs {
         Assert.assertEquals(password,loginPage.password.getAttribute("placeholder"));
 
     }
+
+    @Then("the user should be able to log out and ends up in login page")
+    public void theUserShouldBeAbleToLogOutAndEndsUpInLoginPage() {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.userStatus.click();
+        dashboardPage.logout.click();
+        BrowserUtils.waitForPageToLoad(5);
+        Assert.assertTrue(new LoginPage().login.isDisplayed());
+
+
+
+    }
+
+    @Then("the user can not go to home page again by clicking step back button")
+    public void theUserCanNotGoToHomePageAgainByClickingStepBackButton() {
+        Driver.get().navigate().back();
+        Assert.assertTrue(new LoginPage().login.isDisplayed());
+    }
+
+    @Given("the user login with valid credentials")
+    public void theUserLoginWithValidCredentials() {
+        Driver.get().get(ConfigurationReader.get("url"));
+
+        new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
+
+    }
+
+    @Then("the user on dashboard page")
+    public void theUserOnDashboardPage() {
+        String title = Driver.get().getCurrentUrl().toLowerCase(Locale.ROOT);
+
+        Assert.assertTrue(title.contains("dashboard"));
+    }
 }

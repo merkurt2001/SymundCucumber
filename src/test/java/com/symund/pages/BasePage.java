@@ -14,11 +14,61 @@ import java.util.List;
 public abstract class BasePage {
 
     @FindBy(css = "div.logo.logo-icon")
-    public WebElement pageSubTitle;
+    public WebElement pageLogo;
+
+    @FindBy(css = "#appmenu>li[data-id='dashboard']")
+    public WebElement dashboard;
+
+    @FindBy(css = "#appmenu>li[data-id='files']")
+    public WebElement files;
+
+    @FindBy(css = "#appmenu>li[data-id='photos']")
+    public WebElement photos;
+
+    @FindBy(css = "#appmenu>li[data-id='activity']")
+    public WebElement activity;
+
+    @FindBy(css = "#appmenu>li[data-id='spreed']")
+    public WebElement talk;
+
+    @FindBy(css = "#appmenu>li[data-id='mail']")
+    public WebElement mail;
+
+    @FindBy(css = "#appmenu>li[data-id='contacts']")
+    public WebElement contacts;
+
+    @FindBy(css = "#appmenu>li[data-id='circles']")
+    public WebElement circles;
+
+    @FindBy(css = "#appmenu>li[data-id='calendar']")
+    public WebElement calendar;
+
+    @FindBy(css = "#appmenu>li[data-id='notes']")
+    public WebElement notes;
+
+    @FindBy(css = "#appmenu>li[data-id='deck']")
+    public WebElement deck;
+
+    @FindBy(css = "#appmenu>li[data-id='tasks']")
+    public WebElement tasks;
+
+    @FindBy(id = "unified-search")
+    public WebElement magnifyIcon;
+
+    @FindBy(css = "div.notifications")
+    public WebElement notifications;
+
+    @FindBy(css = "#contactsmenu")
+    public WebElement contactsMenu;
+
+    @FindBy(css = "div.avatardiv.avatardiv-shown")
+    public WebElement userStatus;
+
+    @FindBy(css = "span.user-status-menu-item__header")
+    public WebElement userProfile;
 
     @FindBy(xpath = "//li[@data-id='logout']")
     public WebElement logout;
-
 
 
 
@@ -33,66 +83,33 @@ public abstract class BasePage {
 //        ant time we are verifying page name, or page subtitle, loader mask appears
 //        waitUntilLoaderScreenDisappear();
 //        BrowserUtils.waitForStaleElement(pageSubTitle);
-        return pageSubTitle.getText();
+        return dashboard.getText();
     }
 
     public String getPageTitle(){
         return Driver.get().getTitle();
     }
 
-    /**
-     *compare two List Of String, for example: columns names
-     */
-    public void compareLists(List<String> expectedList, List<WebElement> actualList) {
 
-        for (int i = 0; i < expectedList.size(); ) {
-            for (WebElement each : actualList) {
-                Assert.assertEquals(expectedList.get(i),each.getText());
-                i++;
-            }
-        }
-    }
 
 
     /**
      * This method will navigate user to the specific module in zerobank application.
      * */
-    public void navigateToPage(String page) {
-        String pageLocator = "//*[text()='"+page+"']";
+    public void navigateToPage(String pageName) {
+        String pageLocator = "#appmenu>li[data-id='"+pageName+"']";
 
         try {
-            BrowserUtils.waitForClickablility(By.xpath(pageLocator), 5);
-            WebElement pageElement = Driver.get().findElement(By.xpath(pageLocator));
+            BrowserUtils.waitForClickablility(By.cssSelector(pageLocator), 5);
+            WebElement pageElement = Driver.get().findElement(By.cssSelector(pageLocator));
             new Actions(Driver.get()).moveToElement(pageElement).click().perform();
             //new Actions(Driver.get()).moveToElement(pageElement).pause(200).doubleClick(pageElement).build().perform();
         } catch (Exception e) {
-            BrowserUtils.clickWithWait(By.xpath(pageLocator), 5);
+            BrowserUtils.clickWithWait(By.cssSelector(pageLocator), 5);
         }
     }
 
-    /**
-     * This method will navigate user to the specific module in zerobank application.
-     */
-    public void navigateToTab(String page, String tab) {
-        String pageLocator = "//*[text()='"+page+"']";
-        String tabLocator = "//li/a[text()='"+tab+"']";
-        try {
-            BrowserUtils.waitForClickablility(By.xpath(pageLocator), 5);
-            WebElement tabElement = Driver.get().findElement(By.xpath(pageLocator));
-            new Actions(Driver.get()).moveToElement(tabElement).click().perform();
-            BrowserUtils.waitForVisibility(By.xpath(tabLocator), 5);
-        } catch (Exception e) {
-            BrowserUtils.clickWithWait(By.xpath(pageLocator), 5);
-        }
-        try {
-//            BrowserUtils.waitForPresenceOfElement(By.xpath(tabLocator), 5);
-//            BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(tabLocator)));
-            Driver.get().findElement(By.xpath(tabLocator)).click();
-        } catch (Exception e) {
-//            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(tabLocator)),  5);
-        }
-    }
+
 
 
 }

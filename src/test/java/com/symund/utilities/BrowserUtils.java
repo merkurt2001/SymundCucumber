@@ -375,6 +375,19 @@ public class BrowserUtils {
         new WebDriverWait(com.symund.utilities.Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    /**
+     *compare two List Of String, for example: columns names
+     */
+    public void compareLists(List<String> expectedList, List<WebElement> actualList) {
+
+        for (int i = 0; i < expectedList.size(); ) {
+            for (WebElement each : actualList) {
+                Assert.assertEquals(expectedList.get(i),each.getText());
+                i++;
+            }
+        }
+    }
+
 
 
 }
