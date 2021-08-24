@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/symund/step_defs",
         dryRun = false,
-        tags = "@dashboard",
+        tags = "@smoke",
         strict=true,
         monochrome = false
 )
