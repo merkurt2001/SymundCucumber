@@ -4,6 +4,7 @@ import com.symund.pages.CalendarPage;
 import com.symund.pages.DashboardPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CalendarStepDefs {
 
@@ -25,5 +26,28 @@ public class CalendarStepDefs {
     public void theUserGoToTab(String arg0) {
 
         new DashboardPage().calendar.click();
+    }
+
+    @Then("the user can display {string} calendar view")
+    public void theUserCanDisplayCalendarView(String dateType) {
+
+        String type="";
+
+        switch (dateType)
+        {
+            case "daily":
+                type="day";
+                break;
+            case "weekly":
+                 type="week";
+                 break;
+            case "monthly":
+                 type="month";
+                 break;
+
+        }
+
+        Assert.assertTrue(new CalendarPage().displayType.getAttribute("aria-label").contains(type));
+
     }
 }

@@ -12,6 +12,29 @@ public class CalendarPage extends BasePage {
     public CalendarPage() { PageFactory.initElements(Driver.get(), this);}
 
 
+    @FindBy(xpath = "(//div[@class='datepicker-button-section']//button)[1]")
+    public WebElement displayType;
+
+
+//    public WebElement dateShownBtn(String dateType){
+//
+//        int i = 0;
+//        switch (dateType) {
+//            case "previous":
+//                i=1;
+//                break;
+//            case "now":
+//                i=2;
+//                break;
+//            case "next":
+//                i=4;
+//                break;
+//        }
+//
+//        return Driver.get().findElement(By.xpath("(//div[@class='datepicker-button-section']//button)["+i+"]"));
+//
+//    }
+
     // it retrieves Webelement dynamically
     public WebElement newTodayView(String btn){
 
