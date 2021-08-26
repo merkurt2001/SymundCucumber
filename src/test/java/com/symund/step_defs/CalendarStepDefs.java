@@ -2,6 +2,7 @@ package com.symund.step_defs;
 
 import com.symund.pages.CalendarPage;
 import com.symund.pages.DashboardPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -49,5 +50,17 @@ public class CalendarStepDefs {
 
         Assert.assertTrue(new CalendarPage().displayType.getAttribute("aria-label").contains(type));
 
+    }
+
+    @And("the user enter {string} to the Event Title")
+    public void theUserEnterOfEventToTheEventTitle(String title) {
+
+        new CalendarPage().eventTitle.sendKeys(title);
+    }
+
+    @And("the user enter {string} date to {string} part")
+    public void theUserEnterDateToPart(String date, String fromOrTo) {
+
+        new CalendarPage().dateFromTo(fromOrTo).sendKeys(date);
     }
 }

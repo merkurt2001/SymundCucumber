@@ -15,6 +15,27 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "(//div[@class='datepicker-button-section']//button)[1]")
     public WebElement displayType;
 
+    @FindBy(css = "input[placeholder='Event title']")
+    public WebElement eventTitle;
+
+
+    public WebElement dateFromTo(String fromOrTo){
+
+        int i=0;
+
+        switch (fromOrTo){
+
+            case "from":
+                i=2;
+                break;
+            case "to":
+                i=3;
+                break;
+
+        }
+
+        return Driver.get().findElement(By.xpath("(//input[@name='date'])["+i+"]"));
+    }
 
 //    public WebElement dateShownBtn(String dateType){
 //
