@@ -2,10 +2,15 @@ package com.symund.step_defs;
 
 import com.symund.pages.CalendarPage;
 import com.symund.pages.DashboardPage;
+import com.symund.utilities.BrowserUtils;
+import com.symund.utilities.Driver;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class CalendarStepDefs {
 
@@ -61,6 +66,59 @@ public class CalendarStepDefs {
     @And("the user enter {string} date to {string} part")
     public void theUserEnterDateToPart(String date, String fromOrTo) {
 
-        new CalendarPage().dateFromTo(fromOrTo).sendKeys(date);
+        WebElement dateInput=new CalendarPage().dateFromTo(fromOrTo);
+
+        // we need to clear date field first
+        dateInput.click();
+        dateInput.clear();
+        dateInput.sendKeys(date);
+
+    }
+
+    @And("the user click {string} button from Event page")
+    public void theUserClickButtonFromNewEventPage(String btn) {
+
+        BrowserUtils.waitFor(2);
+        new CalendarPage().eventBtns(btn).click();
+    }
+
+    @Then("the user can see {string} event on {string} Monthly Calendar view")
+    public void theUserCanSeeNewEventOnMonthlyCalendarView(String expectedTitle,String date) {
+
+        //assert title of event to understand if correct event is shown
+        Assert.assertEquals(expectedTitle,new CalendarPage().createdEventInfo(expectedTitle,date).getText());  //get title
+
+
+    }
+
+    @And("the user click {string} on {string} date")
+    public void theUserClick(String title,String date) {
+
+        new CalendarPage().createdEventInfo(title,date).click();
+
+    }
+
+    @And("the user click {string} from created event")
+    public void theUserClickFromCreatedEvent(String arg0) {
+
+        BrowserUtils.waitFor(1);
+        new CalendarPage().dotClick.click();
+    }
+
+    @Then("the user can delete event {string} on {string}")
+    public void theUserCanDeleteEvent(String title, String date) {
+
+
+        boolean b;
+
+        if(new CalendarPage().createdEventInfo(title,date).isDisplayed())
+            b= true;
+        else
+            b=false;
+
+        Assert.assertEquals("false",b);
+
+
+
     }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 public class CalendarPage extends BasePage {
 
 
@@ -17,6 +18,39 @@ public class CalendarPage extends BasePage {
 
     @FindBy(css = "input[placeholder='Event title']")
     public WebElement eventTitle;
+
+    @FindBy(xpath = "//button[contains(text(),'Save')]")
+    public WebElement saveBtn;
+
+    @FindBy(xpath = "//div[@class='action-item app-sidebar-header__menu']//button")
+    public WebElement dotClick;
+
+
+    // It is used for Save, More, Update,Delete and Downloads buttons which are all about EVENT
+    public WebElement eventBtns(String btn){
+
+        String tag="";
+
+        if(btn.equals("More") ||btn.equals("Save")||btn.equals("Update") )
+            tag="button";
+        else if(btn.equals("Download")|| btn.equals("Delete"))
+            tag ="span";
+
+        return Driver.get().findElement(By.xpath("//"+tag+"[contains(text(),'"+btn+"')]"));
+
+    }
+
+
+    public WebElement createdEventInfo(String title, String date){
+
+        String[] dateChange=date.split(" ");   // from 08/30/2021 at 12.00 AM    ---> 08/30/2021
+
+        String[] newDate=dateChange[1].split("/");  //  --> 08, 30, 2021
+
+        String dateFormat= newDate[2]+"-"+ newDate[0]+"-"+newDate[1];  // -->2021-08-30 ,  html uses this format
+
+        return Driver.get().findElement(By.xpath("//td[@data-date='"+dateFormat+"']//div[text()='"+title+"']"));
+    }
 
 
     public WebElement dateFromTo(String fromOrTo){
