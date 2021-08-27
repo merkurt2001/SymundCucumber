@@ -17,7 +17,7 @@ Feature: Calendar
       | Week  |  | weekly      |
       | Month |  | monthly     |
 
-  @wip1
+  @SYMU-487
   Scenario Outline: User can create a new event <eventTitle> under the Calendar module and see it on the related day through the Monthly Calendar view
     When the user go to "Calendar" tab
     And the user click "View Section" button
@@ -50,5 +50,7 @@ Feature: Calendar
     And the user click "3 dot button" from created event
     And the user click "Delete" button from Event page
     Then the user can delete event "For_Deleting" on "from 08/28/2021 at 12.00 AM"
+
+
 
 

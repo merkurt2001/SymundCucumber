@@ -109,16 +109,25 @@ public class CalendarStepDefs {
     public void theUserCanDeleteEvent(String title, String date) {
 
 
-        boolean b;
+//        boolean b;
+//
+//
+//        if(new CalendarPage().createdEventInfo(title,date).isDisplayed())
+//            b= true;
+//        else
+//            b=false;
+//
+//        System.out.println("b = " + b);
+//        Assert.assertEquals("false",b);
 
-        if(new CalendarPage().createdEventInfo(title,date).isDisplayed())
-            b= true;
-        else
-            b=false;
+        String actualTitle= Driver.get().findElement(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']")).getText();
 
-        Assert.assertEquals("false",b);
+        System.out.println("Driver.get().findElement(By.xpath(\"//td[@data-date='2021-08-28']//div[@class='fc-event-title']\")).getText() = " + Driver.get().findElement(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']")).getText());
 
+        System.out.println("actualTitle = " + actualTitle);
+        System.out.println("title = " + title);
 
+        Assert.assertNotEquals(title,actualTitle);
 
     }
 }
