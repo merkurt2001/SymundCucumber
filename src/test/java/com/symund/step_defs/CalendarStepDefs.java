@@ -14,6 +14,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+
 
 public class CalendarStepDefs {
 
@@ -117,4 +121,5 @@ public class CalendarStepDefs {
         BrowserUtils.verifyElementNotDisplayed(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']"));
 
     }
+
 }

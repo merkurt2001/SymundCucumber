@@ -1,3 +1,4 @@
+
 @calendar
 Feature: Calendar
 
@@ -51,7 +52,4 @@ Feature: Calendar
     And the user click "3 dot button" from created event
     And the user click "Delete" button from Event page
     Then the user can delete event "For_Deleting" on "from 08/28/2021 at 12.00 AM"
-
-
-
 
