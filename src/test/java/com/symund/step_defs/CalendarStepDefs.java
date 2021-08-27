@@ -11,6 +11,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CalendarStepDefs {
 
@@ -78,7 +81,7 @@ public class CalendarStepDefs {
     @And("the user click {string} button from Event page")
     public void theUserClickButtonFromNewEventPage(String btn) {
 
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
         new CalendarPage().eventBtns(btn).click();
     }
 
@@ -108,26 +111,10 @@ public class CalendarStepDefs {
     @Then("the user can delete event {string} on {string}")
     public void theUserCanDeleteEvent(String title, String date) {
 
+        //not sure
+        Driver.get().navigate().refresh();
 
-//        boolean b;
-//
-//
-//        if(new CalendarPage().createdEventInfo(title,date).isDisplayed())
-//            b= true;
-//        else
-//            b=false;
-//
-//        System.out.println("b = " + b);
-//        Assert.assertEquals("false",b);
-
-        String actualTitle= Driver.get().findElement(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']")).getText();
-
-        System.out.println("Driver.get().findElement(By.xpath(\"//td[@data-date='2021-08-28']//div[@class='fc-event-title']\")).getText() = " + Driver.get().findElement(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']")).getText());
-
-        System.out.println("actualTitle = " + actualTitle);
-        System.out.println("title = " + title);
-
-        Assert.assertNotEquals(title,actualTitle);
+        BrowserUtils.verifyElementNotDisplayed(By.xpath("//td[@data-date='2021-08-28']//div[@class='fc-event-title']"));
 
     }
 }

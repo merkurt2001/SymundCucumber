@@ -1,3 +1,4 @@
+@calendar
 Feature: Calendar
 
   Background:
@@ -35,7 +36,7 @@ Feature: Calendar
       | Meeting 2  |  | from 08/30/2021 at 12:00 AM |  | to 08/30/2021 at 13:00 AM |
 
 
-  @wip
+  @SYMU-496
   Scenario: User can delete an event
     When the user go to "Calendar" tab
     And the user click "View Section" button
