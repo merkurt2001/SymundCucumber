@@ -73,6 +73,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//li[@data-id='logout']")
     public WebElement logout;
 
+    @FindBy(css = "a.user-status-menu-item__toggle")
+    public WebElement onlineStatus;
+
 
 
     public BasePage() {
