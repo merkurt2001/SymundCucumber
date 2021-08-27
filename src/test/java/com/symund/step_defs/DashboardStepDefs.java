@@ -22,4 +22,16 @@ public class DashboardStepDefs {
         Assert.assertTrue(title.contains(pageName));
 
     }
+
+    @Then("the user click to {string}")
+    public void theUserClickTo(String icon) {
+        DashboardPage dashboardPage = new DashboardPage();
+        if(icon.equalsIgnoreCase("pagelogo")){
+            dashboardPage.pageLogo.click();
+        }else  if(icon.equalsIgnoreCase("contactsmenu")){
+            dashboardPage.contactsMenu.click();
+        }else  if(icon.equalsIgnoreCase("magnifyIcon")){
+            dashboardPage.magnifyIcon.click();
+        }
+    }
 }

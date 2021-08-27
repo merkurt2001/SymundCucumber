@@ -10,12 +10,12 @@ Feature:
 	Scenario: Magnifying glass icon functionalities-UY
 		When the user go to "magnifyIcon" tab
 		And the user types file name as "Photo" and can see file full name
-		Then the user go to "Photo" tab
+		Then the user click to "Photo" file
 		And the user should see the details side page of the "Photo" file
 
 	@SYMU-479
 	Scenario: Search contacts by clicking on the contacts icon - UY
-		When the user go to "contactsMenu" tab
+		Then the user click to "contactsMenu"
 		Then the user types file name as "uguney" and can see file full name
 
 
@@ -30,22 +30,21 @@ Feature:
 
 	Scenario Outline: Dashboard
 		When the user navigate to "<navigatePageName>" page
-		Then the user go to "symundIcon" tab
+		Then the user click to "pageLogo"
 		Then the user on "dashboard" page
 		Examples:
 			| navigatePageName |
-			| dashboard        |
 			| files            |
 			| photos           |
-			| activity         |
-			| spreed           |
-			| mail             |
-			| contacts         |
-			| circles          |
-			| calendar         |
-			| notes            |
-			| deck             |
-			| tasks            |
+#			| activity         |
+#			| spreed           |
+#			| mail             |
+#			| contacts         |
+#			| circles          |
+#			| calendar         |
+#			| notes            |
+#			| deck             |
+#			| tasks            |
 
     #*User Story :
 	#
