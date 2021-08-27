@@ -12,7 +12,7 @@ public class ContactsPage extends BasePage{
     public WebElement Company;
     @FindBy(id = "contact-title")
     public WebElement Title;
-    @FindBy(xpath = "//span[@title='All contacts']")
+    @FindBy(css = "div.vue-recycle-scroller__item-wrapper>div")
     public List<WebElement> AllContact;
     @FindBy(css = "button.action-item__menutoggle.icon-picture-force-white")
     public WebElement Picture;
