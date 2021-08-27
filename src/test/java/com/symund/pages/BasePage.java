@@ -67,6 +67,9 @@ public abstract class BasePage {
     @FindBy(css = "span.user-status-menu-item__header")
     public WebElement userProfile;
 
+    @FindBy(xpath = "//li[contains(@data-id,'set')]")
+    public WebElement profileSettingsOption;
+
     @FindBy(xpath = "//li[@data-id='logout']")
     public WebElement logout;
 
