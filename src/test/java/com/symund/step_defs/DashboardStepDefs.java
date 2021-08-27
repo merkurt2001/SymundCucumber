@@ -34,4 +34,10 @@ public class DashboardStepDefs {
             dashboardPage.magnifyIcon.click();
         }
     }
+
+    @Then("see only the images files with the extension of .jpeg\\/.jpg")
+    public void seeOnlyTheImagesFilesWithTheExtensionOfJpegJpg() {
+
+
+    }
 }

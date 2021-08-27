@@ -8,7 +8,7 @@ Feature:
 
 	@SYMU-477
 	Scenario: Magnifying glass icon functionalities-UY
-		When the user go to "magnifyIcon" tab
+		Then the user click to "magnifyIcon"
 		And the user types file name as "Photo" and can see file full name
 		Then the user click to "Photo" file
 		And the user should see the details side page of the "Photo" file
@@ -28,7 +28,7 @@ Feature:
 	@SYMU-481
 	Scenario: Navigate to Dashboard page by clicking the Symund icon - UY
 
-	Scenario Outline: Dashboard
+	Scenario Outline: Symund icon
 		When the user navigate to "<navigatePageName>" page
 		Then the user click to "pageLogo"
 		Then the user on "dashboard" page
