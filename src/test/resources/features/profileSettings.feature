@@ -12,7 +12,7 @@ Feature: Profile Settings
 #  3.User can make "Phone number" info as private under Profile Settings page
 #  4.User can see the current local time under the Local dropdown
 
-  Scenario: User can see following "<titles>" inside personal info on the Profile Settings page;
+  Scenario: User can see following titles inside personal info on the Profile Settings page;
     Given the user is on the login page
     When the user should be able to login with "Employee11" and "Employee123" and ENTER
     And the user clicks user profile icon and after clicks on settings option
