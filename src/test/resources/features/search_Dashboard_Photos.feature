@@ -36,15 +36,15 @@ Feature:
 			| navigatePageName |
 			| files            |
 			| photos           |
-#			| activity         |
-#			| spreed           |
-#			| mail             |
-#			| contacts         |
-#			| circles          |
-#			| calendar         |
-#			| notes            |
-#			| deck             |
-#			| tasks            |
+			| activity         |
+			| spreed           |
+			| mail             |
+			| contacts         |
+			| circles          |
+			| calendar         |
+			| notes            |
+			| deck             |
+			| tasks            |
 
     #*User Story :
 	#
