@@ -21,8 +21,8 @@ Feature:
 
 	@SYMU-480
 	Scenario:  Images files under the Photos module - UY
-		When the user navigate to "Photos" page
-		Then see only the images files with the extension of .jpeg/.jpg
+		When the user navigate to "photos" page
+		Then see only the images files with the extension of jpeg jpg
 
 
 	@SYMU-481

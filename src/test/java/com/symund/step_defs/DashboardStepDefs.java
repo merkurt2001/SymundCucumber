@@ -5,7 +5,10 @@ import com.symund.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.Locale;
 
 public class DashboardStepDefs {
@@ -35,9 +38,21 @@ public class DashboardStepDefs {
         }
     }
 
-    @Then("see only the images files with the extension of .jpeg\\/.jpg")
+    @Then("see only the images files with the extension of jpeg jpg")
     public void seeOnlyTheImagesFilesWithTheExtensionOfJpegJpg() {
+
+        List<WebElement> elements = Driver.get().findElements(By.cssSelector("a.file"));
+        int count = 0;
+        for (WebElement element : elements) {
+            if (element.getAttribute("href").contains("jpeg")||element.getAttribute("href").contains("jpg")) {
+               count++;
+            }
+        }
+        Assert.assertEquals(elements.size(),count);
+
 
 
     }
+
+
 }
