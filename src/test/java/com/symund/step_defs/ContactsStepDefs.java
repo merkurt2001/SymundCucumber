@@ -5,6 +5,7 @@ import com.symund.pages.DashboardPage;
 import com.symund.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class ContactsStepDefs {
@@ -36,9 +37,9 @@ public class ContactsStepDefs {
         BrowserUtils.waitFor(3);
 
         ContactsPage contactsPage=new ContactsPage();
-        contactsPage.NewContact.click();
         contactsPage.Company.sendKeys(company);
         contactsPage.Title.sendKeys(title+ Keys.ENTER);
+
 
     }
 
@@ -46,6 +47,20 @@ public class ContactsStepDefs {
     public void contacts_appears_in_the_All_contacts_list(String name) {
 
 
+        ContactsPage contactsPage=new ContactsPage();
+        BrowserUtils.waitFor(3);
+        String expect=name;
+        String actual=contactsPage.AllContact.get(0).getText();
+        Assert.assertTrue(actual.contains(expect));
+
+
+
+
+
+
+
+
+       
 
     }
 
