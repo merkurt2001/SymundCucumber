@@ -3,6 +3,8 @@ package com.symund.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ContactsPage extends BasePage{
     @FindBy(id = "new-contact-button")
     public WebElement NewContact;
@@ -11,7 +13,7 @@ public class ContactsPage extends BasePage{
     @FindBy(id = "contact-title")
     public WebElement Title;
     @FindBy(xpath = "//span[@title='All contacts']")
-    public WebElement AllContact;
+    public List<WebElement> AllContact;
     @FindBy(css = "button.action-item__menutoggle.icon-picture-force-white")
     public WebElement Picture;
     @FindBy(xpath = "(//button[@aria-label='Actions'])[7]")
