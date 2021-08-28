@@ -2,7 +2,7 @@ package com.symund.step_defs;
 
 import com.symund.pages.DashboardPage;
 import com.symund.pages.DeletedFilesPage;
-import com.symund.pages.FilesPage;
+import com.symund.pages.FilesPageEC;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -19,15 +19,15 @@ public class DeleteStepDefs {
 
     @And("the user get text that belongs to first line folder")
     public String theUserGetTextThatBelongsToFirstLineFolder() {
-        return new FilesPage().firstLineText.getText();
+        return new FilesPageEC().firstLineText.getText();
     }
 
     String expectedOutput = theUserGetTextThatBelongsToFirstLineFolder();
 
     @When("the user delete first file in the page")
     public void the_user_delete_first_file_in_the_page() {
-        BrowserUtils.waitForClickablility(new FilesPage().firstLineClickButton,10);
-       new FilesPage().deleteFunction();
+        BrowserUtils.waitForClickablility(new FilesPageEC().firstLineClickButton,10);
+       new FilesPageEC().deleteFunction();
     }
 
     @When("the user navigate left side to {string}")

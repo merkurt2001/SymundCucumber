@@ -3,7 +3,7 @@ package com.symund.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class FilesPage extends BasePage{
+public class FilesPageEC extends BasePage{
 
     @FindBy(xpath = "((//tbody[@id='fileList']/tr)[1]/td)[1]/label")
     public WebElement firstLineClickButton;
