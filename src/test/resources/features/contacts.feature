@@ -12,10 +12,8 @@ Feature:Contacts module
       Examples:
       |name   |lastname|
       |mike   | smith  |
-
-
-
-
+      |jesika |  madam |
+      |micheal| jordan |
 
 
 
