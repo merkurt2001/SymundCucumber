@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/symund/step_defs",
         dryRun = false,
-        tags = "@wip",
-        strict=true,
+        tags = "@SYMU-493",
+        strict=false,
         monochrome = false
 )
 
