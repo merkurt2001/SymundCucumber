@@ -5,7 +5,12 @@ import com.symund.pages.DashboardPage;
 import com.symund.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactsStepDefs {
     @When("the user navigate to contacts tab")
@@ -33,20 +38,21 @@ public class ContactsStepDefs {
     @When("user enter {string} and {string}")
     public void user_enter_and(String company, String title) {
 
-        BrowserUtils.waitFor(3);
+
 
         ContactsPage contactsPage=new ContactsPage();
-        contactsPage.NewContact.click();
         contactsPage.Company.sendKeys(company);
         contactsPage.Title.sendKeys(title+ Keys.ENTER);
+        BrowserUtils.waitFor(3);
 
     }
+
 
     @Then("{string} contacts appears in the All contacts list")
-    public void contacts_appears_in_the_All_contacts_list(String name) {
-
-
-
+    public void contactsAppearsInTheAllContactsList(String name) {
+        ContactsPage contactsPage=new ContactsPage();
+        String expect=name;
+        String actual=contactsPage.AllContact.get(0).getText();
+        Assert.assertTrue(actual.contains(expect));
     }
-
 }
