@@ -20,6 +20,10 @@ public class ContactsPage extends BasePage{
     public WebElement icon;
     @FindBy(xpath = "//span[text()='Choose from Files']")
     public WebElement ChooseFromFiles;
+    @FindBy(xpath = "//button[text()='Choose']")
+    public WebElement ChooseButton;
+    @FindBy(xpath = "//div[@class='contact-header-avatar__photo']")
+    public WebElement AfterUploadPicture;
 
 
 
