@@ -2,7 +2,7 @@
 Feature:
 
   Background:
-		#@SYMU-470
+    #@SYMU-470
     Given the user login with valid credentials
 
 
