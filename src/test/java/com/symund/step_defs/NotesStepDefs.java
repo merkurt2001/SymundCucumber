@@ -21,6 +21,7 @@ public class NotesStepDefs {
     @When("the user click the three dots in the upper right corner")
     public void the_user_click_the_three_dots_in_the_upper_right_corner() {
 
+        
     }
 
     @When("the user click the details tab")
