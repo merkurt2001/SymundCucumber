@@ -12,8 +12,8 @@ public class ContactsPage extends BasePage{
     public WebElement Company;
     @FindBy(id = "contact-title")
     public WebElement Title;
-    @FindBy(xpath = "//span[@title='All contacts']")
-    public List<WebElement> AllContact;
+    @FindBy(css = "div.vue-recycle-scroller__item-wrapper>div")
+    public List<WebElement> allContacts;
     @FindBy(css = "button.action-item__menutoggle.icon-picture-force-white")
     public WebElement Picture;
     @FindBy(xpath = "(//button[@aria-label='Actions'])[7]")
