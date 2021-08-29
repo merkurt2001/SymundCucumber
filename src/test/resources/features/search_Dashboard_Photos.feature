@@ -9,7 +9,7 @@ Feature:
 	@SYMU-477
 	Scenario: Magnifying glass icon functionalities-UY
 		Then the user click to "magnifyIcon"
-		And the user types file name as "Photo" and can see file full name
+		And the user types file name "Talk" and can see file name at first row
 		Then the user click to "Photo" file
 		And the user should see the details side page of the "Photo" file
 
