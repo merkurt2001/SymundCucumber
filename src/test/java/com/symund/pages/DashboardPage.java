@@ -22,6 +22,9 @@ public class DashboardPage extends BasePage{
     @FindBy (css = "div.full-name")
     public WebElement contactsMenuSearchName;
 
+    @FindBy (css = "span.unified-search__result-content")
+    public WebElement searchResultContetnt;
+
 
 
 
