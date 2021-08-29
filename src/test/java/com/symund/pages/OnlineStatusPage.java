@@ -1,5 +1,6 @@
 package com.symund.pages;
 
+import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OnlineStatusPage {
+public class OnlineStatusPage extends BasePage{
 
     public OnlineStatusPage() { PageFactory.initElements(Driver.get(), this);}
 
@@ -24,6 +25,9 @@ public class OnlineStatusPage {
     @FindBy(xpath = "//button[@class='status-buttons__primary primary']")
     public WebElement setStatus;
 
+    @FindBy(css = "button.status-buttons__select")
+    public WebElement clear;
+
     @FindBy(css = "div.set-status-modal")
     public WebElement OnlineStatusModalPage;
 
@@ -32,7 +36,7 @@ public class OnlineStatusPage {
 
 
 
-    @FindBy(css = " span.predefined-status__message")
+    @FindBy(css = "span.predefined-status__message")
     public List<WebElement> statusMessage;
 
 
@@ -46,6 +50,11 @@ public class OnlineStatusPage {
     }
 
 
+    public void ValidateStatusMessageDisplayed(String expectedStatus){
+        BrowserUtils.waitFor(2);
+            if (onlineStatus.getText().equals(expectedStatus))
+                Assert.assertTrue(onlineStatus.isDisplayed());
+        }
 
  //   @FindBy(xpath = "//label[@for='user-status-online-status-'" + statusM + "]")
  //   public List<WebElement> statusM;

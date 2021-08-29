@@ -46,7 +46,7 @@ public class OnlineStatusStepDefs {
 
     @And("the user can click any  {string}")
     public void theUserCanClickAny(String statusM) {
-        Driver.get().findElement(By.xpath("//label[@for='user-status-online-status-'" + statusM + "]"));
+        Driver.get().findElement(By.xpath("//label[@for='user-status-online-status-" + statusM + "']")).click();
         BrowserUtils.waitFor(3);
 
 
@@ -86,6 +86,7 @@ public class OnlineStatusStepDefs {
         jse.executeScript("window.scrollBy(0,1000)");
 
         onlineStatusPage.setStatus.click();
+        BrowserUtils.waitFor(2);
     }
 
 
@@ -121,5 +122,12 @@ public class OnlineStatusStepDefs {
     @When("the user clicks to {string} status message")
     public void the_user_clicks_to_status_message(String string) {
 
+        for (WebElement status : onlineStatusPage.statusMessage) {
+            if (status.getText().contains(string))
+                status.click();
+            BrowserUtils.waitForPageToLoad(3);
+        }
+
     }
-}
+
+   }
