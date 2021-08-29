@@ -12,10 +12,12 @@ Feature: Profile Settings
 #  3.User can make "Phone number" info as private under Profile Settings page
 #  4.User can see the current local time under the Local dropdown
 
-  Scenario: User can see following titles inside personal info on the Profile Settings page;
+  Background:
     Given the user is on the login page
     When the user should be able to login with "Employee11" and "Employee123" and ENTER
     And the user clicks user profile icon and after clicks on settings option
+
+  Scenario: User can see following titles inside personal info on the Profile Settings page;
     Then the user should be able to see following titles
       | Profile picture |
       | Full name       |
@@ -26,4 +28,20 @@ Feature: Profile Settings
       | Twitter         |
       | Language        |
       | Locale          |
+
+Scenario: User can change "Full name" info under Profile Settings page
+  When the user deletes the current full name and types new full name as "umit guney"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
