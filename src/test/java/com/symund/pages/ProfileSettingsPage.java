@@ -14,10 +14,13 @@ public class ProfileSettingsPage extends BasePage {
     public WebElement fullNameInputbox;
 
     @FindBy(id="oc-dialog-0-content-input")
-    public WebElement confirmPasswordPopupInputbox;
+    public WebElement confirmationPopupPasswordInputbox;
 
     @FindBy(xpath="//button[.='Confirm']")
-    public WebElement confirmPasswordPopupConfirmButton;
+    public WebElement confirmationPopupConfirmButton;
+
+    @FindBy(css = ".icon-federation-menu.icon-phone")
+    public WebElement phoneNumberOptions;
 
 
 
