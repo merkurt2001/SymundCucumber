@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class NotesPage extends BasePage {
 
     public NotesPage(){
@@ -26,4 +25,38 @@ public class NotesPage extends BasePage {
 
     @FindBy(xpath = "//span[.='Details']")
     public WebElement detailsButton;
+
+    @FindBy(css = "#category")
+    public WebElement newCategories;
+
+    @FindBy(xpath = "//input[@class='icon-confirm loading']")
+    public WebElement setCategories;
+
+    @FindBy(xpath = "(//a[@class='app-navigation-entry-link'])[1]")
+    public WebElement categories;
+
+    @FindBy(xpath = "//ul[@class='app-navigation-entry__children']//span[contains(.,'Personal')]")
+    public WebElement personal;
+
+    @FindBy(xpath = "//button[contains(.,'Delete note')]")
+    public WebElement delete;
+
+    @FindBy(xpath = "//div[@class='CodeMirror-scroll']")
+    public WebElement emptyPage;
+
+    @FindBy(xpath = "//a[.='Favorites']")
+    public WebElement favoritesTab;
+
+    @FindBy(className = "nametext")
+    public WebElement newFile;
+
+    @FindBy(xpath = "//p[@class='app-sidebar-header__subtitle']")
+    public WebElement wordsAndLetter;
+
+    @FindBy(xpath = "//a[@href='/index.php/apps/notes/note/6744']/span[@class='app-navigation-entry__title']")
+    public WebElement note;
+
+    @FindBy(xpath = "//header[@class='app-sidebar-header']/a[@href='#']")
+    public WebElement close;
+
 }
