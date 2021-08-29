@@ -46,6 +46,9 @@ public class DeletedFilesPage extends BasePage {
         new DeletedFilesPage().deletePermanent.click();
     }
 
+    @FindBy(xpath = "(//span[.=' Restore'])[1]")
+    public WebElement restoreButton;
+
 
 
 
