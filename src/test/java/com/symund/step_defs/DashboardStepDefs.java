@@ -55,4 +55,7 @@ public class DashboardStepDefs {
     }
 
 
+    @Then("the user types file name as {string} and can see file full name")
+    public void theUserTypesFileNameAsAndCanSeeFileFullName(String fileName) {
+    }
 }
