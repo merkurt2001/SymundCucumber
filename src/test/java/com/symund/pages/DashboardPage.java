@@ -16,6 +16,9 @@ public class DashboardPage extends BasePage{
     @FindBy (css = "a.file")
     public List<WebElement> photos;
 
+    @FindBy (css = "#contactsmenu-search")
+    public WebElement contactsMenuSearch;
+
 
 
 
