@@ -1,7 +1,9 @@
 package com.symund.step_defs;
 
 import com.symund.pages.DashboardPage;
+import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -55,4 +57,26 @@ public class DashboardStepDefs {
     }
 
 
+    @Then("the user types file name as {string} and can see file full name")
+    public void theUserTypesFileNameAsAndCanSeeFileFullName(String fileName) {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.contactsMenuSearch.sendKeys(fileName);
+        //BrowserUtils.waitFor(3);
+
+        String searchNameText = dashboardPage.contactsMenuSearchName.getText();
+        System.out.println(searchNameText);
+        Assert.assertEquals(fileName,searchNameText);
+    }
+
+    @And("the user types file name {string} and can see file name at first row")
+    public void theUserTypesFileNameAndCanSeeFileNameAtFirstRow(String fileName) {
+
+        DashboardPage dashboardPage = new DashboardPage();
+
+        dashboardPage.magnifyIconSearch.sendKeys(fileName);
+        BrowserUtils.waitFor(3);
+        String searchNameText = dashboardPage.searchResultContent.getText();
+        System.out.println(searchNameText);
+        Assert.assertEquals(fileName,searchNameText);
+    }
 }
