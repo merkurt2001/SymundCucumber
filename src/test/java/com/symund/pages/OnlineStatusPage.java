@@ -31,6 +31,9 @@ public class OnlineStatusPage extends BasePage{
     @FindBy(css = "div.set-status-modal")
     public WebElement OnlineStatusModalPage;
 
+    @FindBy(css = "button.status-buttons__select")
+    public WebElement clearStatus;
+
   //  @FindBy(xpath = "//label[@for='user-status-online-status-'" + string + "]")
     //public List<WebElement> statusMessages;
 

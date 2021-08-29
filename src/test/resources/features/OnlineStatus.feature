@@ -66,5 +66,4 @@ Feature:
     When the user clicks to emoji icon and chooses emoji "grinning"
     Then the user click on Set Status Message
     And the user clicks user profile icon
-    And the user can see "Hello World" on status
-		
+    And the user can see "😀 Hello World" on status

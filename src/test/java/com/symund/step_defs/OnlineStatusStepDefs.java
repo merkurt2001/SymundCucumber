@@ -19,7 +19,7 @@ import java.util.List;
 public class OnlineStatusStepDefs {
 
     DashboardPage dashboardPage = new DashboardPage();
-    OnlineStatusPage onlineStatusPage=new OnlineStatusPage();
+    OnlineStatusPage onlineStatusPage = new OnlineStatusPage();
 
     @When("the user clicks user profile icon")
     public void theUserClicksUserProfileIcon() {
@@ -60,10 +60,8 @@ public class OnlineStatusStepDefs {
 
     @Then("the user can see {string} on status")
     public void theUserCanSeeOnStatus(String string) {
-        Assert.assertEquals(string,dashboardPage.onlineStatus.getText());
+        Assert.assertEquals(string, dashboardPage.onlineStatus.getText());
     }
-
-
 
 
     @Then("the user can see the status modal page")
@@ -90,34 +88,29 @@ public class OnlineStatusStepDefs {
     }
 
 
-
-    @And("the user can see the statusM on status")
-    public void theUserCanSeeTheOnStatus() {
-
+    //   @And("the user can see the statusM on status")
+    //   public void theUserCanSeeTheOnStatus() {
 
 
-    }
+    //   }
 
 
     @When("the user clicks to emoji icon and chooses emoji {string}")
     public void theUserClicksToEmojiIconAndChoosesEmoji(String string) {
 
-       onlineStatusPage.emojiBox.click();
+        onlineStatusPage.emojiBox.click();
         onlineStatusPage.getEmoji(string);
     }
 
-    @And("the user can change {string}")
-    public void theUserCanChange(String arg0) {
+    //  @And("the user can change {string}")
+    //  public void theUserCanChange(String arg0) {
 
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        jse.executeScript("window.scrollBy(0,1000)");
-
-
+    //     JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+    //     jse.executeScript("window.scrollBy(0,1000)");
 
 
 
 
-    }
 
     @When("the user clicks to {string} status message")
     public void the_user_clicks_to_status_message(String string) {
@@ -130,4 +123,12 @@ public class OnlineStatusStepDefs {
 
     }
 
-   }
+    @And("the user delete previous message clicking on clearStatus")
+    public void theUserDeletePreviousMessageClickingOnClearStatus() {
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        jse.executeScript("window.scrollBy(0,1000)");
+        onlineStatusPage.clearStatus.click();
+
+    }
+}
