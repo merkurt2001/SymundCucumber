@@ -150,6 +150,4 @@ public class LoginStepDefs {
 
         Assert.assertTrue(title.contains("dashboard"));
     }
-
-
 }
