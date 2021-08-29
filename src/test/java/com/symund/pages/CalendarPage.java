@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CalendarPage extends BasePage {
 
 
-    public CalendarPage() { PageFactory.initElements(Driver.get(), this);}
+    public CalendarPage() { PageFactory.initElements(Driver.get(), this); }
 
 
     @FindBy(xpath = "(//div[@class='datepicker-button-section']//button)[1]")
