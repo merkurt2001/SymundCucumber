@@ -40,7 +40,7 @@ public class OnlineStatusPage extends BasePage{
 
 
     @FindBy(css = "span.predefined-status__message")
-    public List<WebElement> statusMessage;
+    public List<WebElement> defaultStatusMessage;
 
 
     @FindBy(css = "button.custom-input__emoji-button")
