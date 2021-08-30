@@ -83,7 +83,7 @@ public class DashboardStepDefs {
     @Then("the user click to {string} file")
     public void theUserClickToFile(String fileName) {
 
-        new  DashboardPage().searchResultContent.click();
+        new  DashboardPage().clickSearchName(fileName);
 
     }
 }
