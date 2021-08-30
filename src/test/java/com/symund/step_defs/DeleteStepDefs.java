@@ -6,6 +6,7 @@ import com.symund.pages.FilesPageEC;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -139,4 +140,37 @@ public class DeleteStepDefs {
     }
 
 
+    @Given("click pickButton")
+    public void clickPickButton() {
+        new DeletedFilesPage().pickButton.click();
+    }
+
+    @And("click restoreButton")
+    public void clickRestoreButton() {
+        new DeletedFilesPage().restoreButton.click();
+        BrowserUtils.waitFor(3);
+    }
+
+    String s ="";
+    @And("get name as a string")
+    public void getNameAsAString() {
+        s= new DeletedFilesPage().firstLineText.getText();
+    }
+
+    List<String> restoreList = new ArrayList<>();
+    @And("get all folder names")
+    public void getAllFolderNames() {
+        BrowserUtils.waitForClickablility(new DashboardPage().dashboard,10);
+        List<WebElement> rows = new FilesPageEC().rows;
+        for(int i=0;i<rows.size();i++){
+            restoreList.add(rows.get(i).getAttribute("data-file"));
+        }
+    }
+
+    @Then("verify that restored file is seen under the All Files tab")
+    public void verifyThatRestoredFileIsSeenUnderTheAllFilesTab() {
+        System.out.println("s = " + s);
+        System.out.println("restoreList.toString() = " + restoreList.toString());
+        Assert.assertTrue(restoreList.contains(s));
+    }
 }
