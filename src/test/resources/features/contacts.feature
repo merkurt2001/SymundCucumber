@@ -12,7 +12,10 @@ Feature:Contacts module
 
       Examples:
       |name   |lastname|
-      |mike   | smith  |
+      |mike  | smith |
+
+
+
 
 
 
@@ -29,6 +32,12 @@ Feature:Contacts module
     Then Click to "Choose from file"
     Then choose "Yeni-Toyota" picture
 
+
+  @SYMU-475
+  Scenario: Verfy that user can delete contact
+    And Click to "first contacts"
+    And Click to "icon"
+    Then user can delete with click to delete
 
 
 

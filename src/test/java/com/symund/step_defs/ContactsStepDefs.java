@@ -35,7 +35,7 @@ public class ContactsStepDefs {
         }else if(click.equals("Choose from file")){
             contactsPage.ChooseFromFiles.click();
         }else if (click.equals("first contacts")){
-            contactsPage.AllContact.get(0).click();
+            contactsPage.list.get(0).click();
         }
     }
 
@@ -59,8 +59,10 @@ public class ContactsStepDefs {
 
         ContactsPage contactsPage=new ContactsPage();
         String expect=name;
-        String actual=contactsPage.AllContact.get(0).getText();
+        String actual=contactsPage.list.get(0).getText();
         Assert.assertTrue(actual.contains(expect));
+
+
     }
 
 
@@ -73,6 +75,22 @@ public class ContactsStepDefs {
         String expect="contact-header-avatar__photo";
         String actual=new ContactsPage().AfterUploadPicture.getAttribute("class");
         Assert.assertEquals(expect,actual);
+
+    }
+
+    @Then("user can delete with click to delete")
+    public void userCanDeleteWithClickToDelete() {
+
+        ContactsPage contactsPage=new ContactsPage();
+        WebElement delete=Driver.get().findElement(By.cssSelector("span.action-button__icon.icon-delete"));
+        System.out.println(contactsPage.list.size());
+        String BeforeDelete=contactsPage.list.get(0).getText();
+        delete.click();
+        BrowserUtils.waitFor(3);
+        String AfterDelete=contactsPage.list.get(0).getText();
+        Assert.assertFalse(BeforeDelete.equals(AfterDelete));
+
+
 
     }
 }

@@ -3,6 +3,7 @@ package com.symund.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsPage extends BasePage{
@@ -24,6 +25,10 @@ public class ContactsPage extends BasePage{
     public WebElement ChooseButton;
     @FindBy(xpath = "//div[@class='contact-header-avatar__photo']")
     public WebElement AfterUploadPicture;
+    @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
+    public List<WebElement> list;
+
+
 
 
 
