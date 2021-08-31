@@ -39,6 +39,8 @@ public class FilesStepDefs {
     @When("user clicks three dots menu which is right side of selected file")
     public void user_clicks_three_dots_menu_which_is_right_side_of_selected_file() {
 
+        filesPage.threeDotsMenu.click();
+
     }
 
     @When("user clicks add to favorite button")
