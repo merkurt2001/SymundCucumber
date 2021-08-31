@@ -1,6 +1,8 @@
 package com.symund.pages;
 
+import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,11 +31,22 @@ public class DashboardPage extends BasePage{
     @FindBy (xpath = "(//span[@class='unified-search__result-content'])[1]")
     public WebElement searchResultContent;
 
+    @FindBy(css = "h2.app-sidebar-header__maintitle")
+    public WebElement sidebarMainTitle;
+
     public void clickSearchName(String fileName){
         String name = "//a[@class='unified-search__result']//h3[@title='"+fileName+"']";
         Driver.get().findElement(By.xpath(name)).click();
-
+        BrowserUtils.waitFor(2);
     }
+
+    public void getSidebarMainTitle(String fileName){
+        String text = Driver.get().findElement(By.cssSelector("h2.app-sidebar-header__maintitle")).getText();
+        System.out.println("text = " + text);
+        Assert.assertTrue(text.contains(fileName));
+    }
+
+
 
 
 
