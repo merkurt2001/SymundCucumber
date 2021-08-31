@@ -8,7 +8,7 @@ Feature: Files Options
 	Scenario: Verify that user can add any file to favorites from its own three dots menu-ANC
 		When user clicks "files module"
 		And user clicks three dots menu which is right side of selected file
-		And user clicks add to favorite button
+		And user clicks "add to favorite"
 		Then user should see star symbol above the selected files icon
 		And user clicks "menu icon"
 		And user clicks "favorites tab"
