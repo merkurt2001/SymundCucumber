@@ -171,6 +171,7 @@ public class DeleteStepDefs {
 
     @Then("verify that restored file is seen under the All Files tab")
     public void verifyThatRestoredFileIsSeenUnderTheAllFilesTab() {
+        BrowserUtils.waitFor(3);
         System.out.println("s = " + s);
         System.out.println("restoreList.toString() = " + restoreList.toString());
         Assert.assertTrue(restoreList.contains(s));
