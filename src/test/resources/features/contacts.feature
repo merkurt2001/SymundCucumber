@@ -22,6 +22,7 @@ Feature:Contacts module
     @SYMU-473
     Scenario: Verify that user can see all contact as a list and total number
       Then "mike" contacts appears in the All contacts list
+      And  see total number of contacts
 
 
 

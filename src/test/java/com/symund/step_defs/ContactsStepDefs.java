@@ -4,6 +4,7 @@ import com.symund.pages.ContactsPage;
 import com.symund.pages.DashboardPage;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -59,6 +60,7 @@ public class ContactsStepDefs {
 
         ContactsPage contactsPage=new ContactsPage();
         String expect=name;
+        BrowserUtils.waitFor(3);
         String actual=contactsPage.list.get(0).getText();
         Assert.assertTrue(actual.contains(expect));
 
@@ -90,6 +92,17 @@ public class ContactsStepDefs {
         String AfterDelete=contactsPage.list.get(0).getText();
         Assert.assertFalse(BeforeDelete.equals(AfterDelete));
 
+
+
+    }
+
+    @And("see total number of contacts")
+    public void seeTotalNumberOfContacts() {
+        ContactsPage contactsPage=new ContactsPage();
+        int expectNum=contactsPage.list.size();
+        String number=contactsPage.ContactsNumber.getText();
+        int actualNum=Integer.parseInt(number);
+        Assert.assertEquals(expectNum,actualNum);
 
 
     }

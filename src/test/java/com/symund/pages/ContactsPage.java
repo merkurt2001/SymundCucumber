@@ -27,6 +27,8 @@ public class ContactsPage extends BasePage{
     public WebElement AfterUploadPicture;
     @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
     public List<WebElement> list;
+    @FindBy(xpath = "//div[@class='app-navigation-entry__counter']")
+    public WebElement ContactsNumber;
 
 
 
