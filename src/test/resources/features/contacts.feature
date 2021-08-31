@@ -4,7 +4,7 @@ Feature:Contacts module
     When the user navigate to contacts tab
 
 
-    @SYMU-472 @wip
+    @SYMU-472
    Scenario Outline:Verify that user can create a new contact
     And  Click to "New Contact"
     And  user enter "<name>" and "<lastname>"
