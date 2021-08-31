@@ -77,4 +77,5 @@ public class ProfileSettingsStepdefs {
     public void theUserClicksOnThePhoneNumberOptions() {
         page.phoneNumberOptions.click();
     }
+
 }
