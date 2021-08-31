@@ -4,15 +4,18 @@ import com.symund.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 public class FilesStepDefs {
+    FilesPage filesPage = new FilesPage();
+
 
     @When("user clicks {string}")
     public void user_clicks(String button) {
 
-        FilesPage filesPage = new FilesPage();
 
         if(button.contains("files module")) {
             filesPage.filesIcon.click();
@@ -45,6 +48,7 @@ public class FilesStepDefs {
 
     @Then("user should see star symbol above the selected files icon")
     public void user_should_see_star_symbol_above_the_selected_files_icon() {
+
     }
 
 
@@ -66,6 +70,8 @@ public class FilesStepDefs {
     @When("user enters comment in inputbox")
     public void user_enters_comment_in_inputbox() {
 
+        filesPage.commentTextBox.sendKeys("Hello, how are you?");
+
     }
 
     @Then("user should see written comment")
@@ -75,6 +81,8 @@ public class FilesStepDefs {
 
     @Given("the user on comments section")
     public void the_user_on_comments_section() {
+
+       Assert.assertTrue(filesPage.commentsTab.isDisplayed());
 
     }
 
