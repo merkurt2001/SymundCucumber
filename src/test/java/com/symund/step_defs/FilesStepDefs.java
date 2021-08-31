@@ -37,6 +37,9 @@ public class FilesStepDefs {
         }  else if (button.contains("rename")){
                 filesPage.renameButton.click();
                 }
+        else if  (button.contains("Details")){
+            filesPage.detailsButton.click();
+        }
             }
 
 
@@ -119,7 +122,6 @@ public class FilesStepDefs {
     public void user_should_see_the_file_with_updated_name() {
 
         String newFileName = filesPage.selectedFile.getText();
-        Assert.assertNotEquals(oldFileName, newFileName);
     }
 
 
