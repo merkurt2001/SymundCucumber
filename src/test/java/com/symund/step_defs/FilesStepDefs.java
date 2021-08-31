@@ -18,8 +18,19 @@ public class FilesStepDefs {
             filesPage.filesIcon.click();
         }
         else if(button.contains("menu icon")){
-filesPage.
+             filesPage.menuIcon.click();
         }
+        else if (button.contains("favorites tab")){
+            filesPage.favoritesTab.click();
+        }
+        else if (button.contains("Comments")){
+            filesPage.commentsTab.click();
+        }
+        else if(button.contains("Comments TextBox")){
+            filesPage.commentTextBox.click();
+        }
+        else if(button.contains("Comment submit icon"))
+            filesPage.submitCommitButton.click();
     }
 
     @When("user clicks three dots menu which is right side of selected file")

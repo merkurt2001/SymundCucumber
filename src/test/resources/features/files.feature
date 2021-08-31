@@ -26,7 +26,7 @@ Feature: Files Options
 
 	@SYMU-490
 	Scenario: Verify that user can put some comments on any file from the file details menu opened right side - ANC
-		When user clicks "Files module"
+		When user clicks "files module"
 		And user clicks three dots menu which is right side of selected file
 		And user clicks "Details"
 		And user clicks "Comments"
