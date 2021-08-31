@@ -61,9 +61,12 @@ public class ContactsStepDefs {
         ContactsPage contactsPage=new ContactsPage();
         String expect=name;
         BrowserUtils.waitFor(3);
-        String actual=contactsPage.list.get(0).getText();
+        String actual="";
+        for(int a=0;a<contactsPage.list.size();a++){
+            actual=contactsPage.list.get(a).getText();
 
-        Assert.assertTrue(actual.contains(expect));
+        }
+        Assert.assertEquals(expect,actual);
 
 
     }

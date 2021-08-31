@@ -4,7 +4,7 @@ Feature:Contacts module
     When the user navigate to contacts tab
 
 
-    @SYMU-472
+    @SYMU-472 @wip
    Scenario Outline:Verify that user can create a new contact
     And  Click to "New Contact"
     And  user enter "<name>" and "<lastname>"
@@ -13,6 +13,8 @@ Feature:Contacts module
       Examples:
       |name  |lastname|
       |mike  | smith  |
+      |steven|king    |
+      |elon  |musk    |
 
 
 
