@@ -25,6 +25,14 @@ public class FilesPage extends BasePage {
 @FindBy (xpath = "//*[@class='icon-menu']")
     public WebElement menuIcon;
 
+@FindBy(xpath = "//*[@data-tags='_$!<Favorite>!$_']")
+    public WebElement favoriteStarIcon;
+
+@FindBy (xpath = "//*[@data-tags='']")
+    public WebElement dataTags;
+
+@FindBy (xpath = "//*[@class='action action-menu permanent']")
+    public WebElement threeDotsMenu;
 
 
 
