@@ -35,6 +35,8 @@ public class NotesStepDefs {
     public void theUserClickTheDetailsTab() {
 
         new NotesPage().detailsButton.click();
+
+        BrowserUtils.waitFor(3);
     }
 
     @Then("the user should be able to write new categories name")
@@ -81,11 +83,54 @@ public class NotesStepDefs {
         JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
         executor.executeScript("arguments[0].click();", notesPage.threeDots);
 
+        BrowserUtils.waitFor(2);
+        notesPage.addFavorites.click();
+
     }
 
     @Then("the user should be able to click delete note")
     public void theUserShouldBeAbleToClickDeleteNote() {
 
         new NotesPage().delete.click();
+    }
+
+    @Then("the user can see empty page and write something")
+    public void theUserCanSeeEmptyPageAndWriteSomething() {
+        NotesPage notesPage = new NotesPage();
+        Assert.assertTrue(notesPage.emptyPage.isEnabled());
+
+    }
+
+    @And("the user click the favorites tab")
+    public void theUserClickTheFavoritesTab() {
+        NotesPage notesPage = new NotesPage();
+
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+        executor.executeScript("arguments[0].click();", notesPage.favoritesTab);
+    }
+
+    @And("the user can see the file newly added")
+    public void theUserCanSeeTheFileNewlyAdded() {
+        NotesPage notesPage = new NotesPage();
+
+        System.out.println(notesPage.newFile.getText());
+
+        Assert.assertTrue(notesPage.newFile.isDisplayed());
+    }
+
+    @And("the user click the favorites notes under the categories")
+    public void theUserClickTheFavoritesNotesUnderTheCategories() {
+    }
+
+    @Then("User can see notes number of letters and words")
+    public void userCanSeeNotesNumberOfLettersAndWords() {
+
+        NotesPage notesPage = new NotesPage();
+
+        String expectedText = "2 words, 14 characters";
+        String actualText = notesPage.wordsAndLetter.getText();
+
+        Assert.assertEquals(expectedText,actualText);
+
     }
 }
