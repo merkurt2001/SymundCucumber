@@ -1,3 +1,4 @@
+@wip
 Feature: delete functionalities
   Background:
     Given the user login with valid credentials
@@ -10,6 +11,15 @@ Feature: delete functionalities
     And the user navigate left side to "Deleted files"
     And the user click order button
     Then verify that the most deleted file is placed the first line
+
+  Scenario: User should able to order the all deleted files by oldest to newest
+    Given the user navigate left side to "Deleted files"
+    Then verify that deleted files are ordered by oldest to newest as default
+
+  Scenario:  User should able to order the all deleted files by newest to oldest
+    Given the user navigate left side to "Deleted files"
+    When click the deleted button
+    Then verify that deleted files are ordered by newest to oldest
 
 
     Scenario: User should able to order alphabetically all the deleted files based on their names and vice versa
@@ -40,18 +50,8 @@ Feature: delete functionalities
         And get all folder names
         Then verify that restored file is seen under the All Files tab
 
-      @wip
-      Scenario: User should able to order the all deleted files by oldest to newest
-        Given the user navigate left side to "Deleted files"
-        Then verify that deleted files are ordered by oldest to newest as default
 
 
-
-      @wip
-      Scenario:  User should able to order the all deleted files by newest to oldest
-        Given the user navigate left side to "Deleted files"
-        When click the deleted button
-        Then verify that deleted files are ordered by newest to oldest
 
 
 
