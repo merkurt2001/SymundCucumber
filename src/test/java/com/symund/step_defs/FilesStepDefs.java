@@ -120,8 +120,6 @@ public class FilesStepDefs {
 
         String newFileName = filesPage.selectedFile.getText();
         Assert.assertNotEquals(oldFileName, newFileName);
-        Assert.assertEquals(fileName, true, newFileName);
-
     }
 
 
