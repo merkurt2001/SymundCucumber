@@ -20,8 +20,7 @@ Feature: Files Options
 		When user clicks "files module"
 		And user clicks three dots menu which is right side of selected file
 		And user clicks "rename"
-		And user enters new file name into the line which just appear
-		And user clicks "enter"
+		And user enters new file name "Renamed File"
 		Then user should see the file with updated name
 
 	@SYMU-490
@@ -31,7 +30,7 @@ Feature: Files Options
 		And user clicks "Details"
 		And user clicks "Comments"
 		And user clicks "Comment TextBox"
-		And user enters comment in inputbox
+		And user enters comment "Hello, how are you today?"
 		And user clicks "Comment submit icon"
 		Then user should see written comment
 

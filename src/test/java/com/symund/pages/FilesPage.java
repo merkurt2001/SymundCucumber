@@ -34,18 +34,24 @@ public class FilesPage extends BasePage {
 @FindBy (xpath = "//*[@class='action action-menu permanent']")
     public WebElement threeDotsMenu;
 
-@FindBy (xpath = "//span[@class='nametext']")
+@FindBy (xpath = "//*[@class='innernametext']")
     public WebElement fileNameText;
 
-@FindBy (xpath = "//*[@id='fileList']/tr[3]/td[2]/div/ul/li[5]/a/span[2]")
+@FindBy (xpath = "//*[@class=' action-rename-container']")
     public WebElement renameButton;
 
 @FindBy (xpath = "//span[text()='Add to favorites'] ")
 public WebElement addToFavorites;
 
+@FindBy (xpath = "//*[@data-id='1240']")
+    public WebElement selectedFile;
+
+@FindBy (xpath = "//*[@class='action-1']")
+    public WebElement detailsButton;
 
 
-
+@FindBy (xpath = "//*[@class='comment comments__list']")
+    public WebElement newComment;
 
 
 
