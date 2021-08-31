@@ -2,6 +2,9 @@ package com.symund.pages;
 
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,13 +34,16 @@ public class OnlineStatusPage extends BasePage{
     @FindBy(css = "button.status-buttons__select")
     public WebElement clearStatus;
 
+    @FindBy(css = "form.custom-input__form>input")
+    public WebElement statusMessageBar;
+
   //  @FindBy(xpath = "//label[@for='user-status-online-status-'" + string + "]")
     //public List<WebElement> statusMessages;
 
 
 
     @FindBy(css = "span.predefined-status__message")
-    public List<WebElement> statusMessage;
+    public List<WebElement> defaultStatusMessage;
 
 
     @FindBy(css = "button.custom-input__emoji-button")

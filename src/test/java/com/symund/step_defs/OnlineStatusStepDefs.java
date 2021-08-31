@@ -115,7 +115,7 @@ public class OnlineStatusStepDefs {
     @When("the user clicks to {string} status message")
     public void the_user_clicks_to_status_message(String string) {
 
-        for (WebElement status : onlineStatusPage.statusMessage) {
+        for (WebElement status : onlineStatusPage.defaultStatusMessage) {
             if (status.getText().contains(string))
                 status.click();
             BrowserUtils.waitForPageToLoad(3);

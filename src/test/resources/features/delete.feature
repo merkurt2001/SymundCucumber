@@ -30,7 +30,7 @@ Feature: delete functionalities
         When define Box
         And delete folder
         Then verify that delete file permanently
-      @wip
+
       Scenario:  User should able to restore any deleted file and see it again under the All Files tab
         Given the user navigate left side to "Deleted files"
         Given click pickButton
@@ -39,6 +39,21 @@ Feature: delete functionalities
         When the user navigate to "files" page
         And get all folder names
         Then verify that restored file is seen under the All Files tab
+
+      @wip
+      Scenario: User should able to order the all deleted files by oldest to newest
+        Given the user navigate left side to "Deleted files"
+        Then verify that deleted files are ordered by oldest to newest as default
+
+
+
+      @wip
+      Scenario:  User should able to order the all deleted files by newest to oldest
+        Given the user navigate left side to "Deleted files"
+        When click the deleted button
+        Then verify that deleted files are ordered by newest to oldest
+
+
 
 
 

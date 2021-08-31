@@ -49,6 +49,12 @@ public class DeletedFilesPage extends BasePage {
     @FindBy(xpath = "(//span[.=' Restore'])[1]")
     public WebElement restoreButton;
 
+    @FindBy(xpath = "((//tbody[@id='fileList'])[12]/tr/td)[@class='date']/span")
+    public List<WebElement> dateLast;
+
+    @FindBy(xpath = "//span[.='Deleted']")
+    public WebElement deletedButton;
+
 
 
 

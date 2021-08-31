@@ -12,6 +12,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+
+import java.sql.Timestamp;
 import java.util.*;
 
 public class DeleteStepDefs {
@@ -172,5 +174,59 @@ public class DeleteStepDefs {
         System.out.println("s = " + s);
         System.out.println("restoreList.toString() = " + restoreList.toString());
         Assert.assertTrue(restoreList.contains(s));
+    }
+
+    boolean verificationSuccess1 = true;
+    Timestamp timestamp;
+    Date date;
+    List<Date> dateList1 = new ArrayList<>();
+    @Then("verify that deleted files are ordered by oldest to newest as default")
+    public void verifyThatDeletedFilesAreOrderedByOldestToNewestAsDefault() {
+        for(int i=0;i<new DeletedFilesPage().dateLast.size();i++){
+            long milliseconds = Long.parseLong(new DeletedFilesPage().dateLast.get(i).getAttribute("data-timestamp"));
+            timestamp = new Timestamp(milliseconds);
+            date = new Date(timestamp.getTime());
+            dateList1.add(date);
+        }
+        System.out.println("dateList1.toString() = " + dateList1.toString());
+
+        for (int i=0;i<dateList1.size()-1;i++){
+            boolean oldest = dateList1.get(i).after(dateList1.get(i+1));
+            if(oldest) {
+                verificationSuccess1 = false;
+                break;
+            }
+        }
+        Assert.assertTrue(verificationSuccess1);
+    }
+
+
+    @When("click the deleted button")
+    public void clickTheDeletedButton() {
+        new DeletedFilesPage().deletedButton.click();
+    }
+
+    boolean verificationSuccess2 = true;
+    List<Date> dateList2 = new ArrayList<>();
+    @Then("verify that deleted files are ordered by newest to oldest")
+    public void verifyThatDeletedFilesAreOrderedByNewestToOldest() {
+
+        for(int i=0;i<new DeletedFilesPage().dateLast.size();i++){
+            long milliseconds = Long.parseLong(new DeletedFilesPage().dateLast.get(i).getAttribute("data-timestamp"));
+            timestamp = new Timestamp(milliseconds);
+            date = new Date(timestamp.getTime());
+            dateList2.add(date);
+        }
+        System.out.println("dateList2.toString() = " + dateList2.toString());
+
+        for (int i=0;i<dateList2.size()-1;i++){
+            boolean newest = dateList2.get(i).before(dateList2.get(i+1));
+            if(newest) {
+                verificationSuccess2 = false;
+                break;
+            }
+        }
+        Assert.assertTrue(verificationSuccess2);
+
     }
 }
