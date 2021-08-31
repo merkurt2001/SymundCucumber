@@ -1,6 +1,7 @@
 package com.symund.pages;
 
 import com.symund.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -27,6 +28,12 @@ public class DashboardPage extends BasePage{
 
     @FindBy (xpath = "(//span[@class='unified-search__result-content'])[1]")
     public WebElement searchResultContent;
+
+    public void clickSearchName(String fileName){
+        String name = "//a[@class='unified-search__result']//h3[@title='"+fileName+"']";
+        Driver.get().findElement(By.xpath(name)).click();
+
+    }
 
 
 

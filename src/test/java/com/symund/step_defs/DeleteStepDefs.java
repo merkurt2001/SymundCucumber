@@ -6,11 +6,14 @@ import com.symund.pages.FilesPageEC;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+
+import java.sql.Timestamp;
 import java.util.*;
 
 public class DeleteStepDefs {
@@ -139,4 +142,91 @@ public class DeleteStepDefs {
     }
 
 
+    @Given("click pickButton")
+    public void clickPickButton() {
+        new DeletedFilesPage().pickButton.click();
+    }
+
+    @And("click restoreButton")
+    public void clickRestoreButton() {
+        new DeletedFilesPage().restoreButton.click();
+        BrowserUtils.waitFor(3);
+    }
+
+    String s ="";
+    @And("get name as a string")
+    public void getNameAsAString() {
+        s= new DeletedFilesPage().firstLineText.getText();
+    }
+
+    List<String> restoreList = new ArrayList<>();
+    @And("get all folder names")
+    public void getAllFolderNames() {
+        BrowserUtils.waitForClickablility(new DashboardPage().dashboard,10);
+        List<WebElement> rows = new FilesPageEC().rows;
+        for(int i=0;i<rows.size();i++){
+            restoreList.add(rows.get(i).getAttribute("data-file"));
+        }
+    }
+
+    @Then("verify that restored file is seen under the All Files tab")
+    public void verifyThatRestoredFileIsSeenUnderTheAllFilesTab() {
+        System.out.println("s = " + s);
+        System.out.println("restoreList.toString() = " + restoreList.toString());
+        Assert.assertTrue(restoreList.contains(s));
+    }
+
+    boolean verificationSuccess1 = true;
+    Timestamp timestamp;
+    Date date;
+    List<Date> dateList1 = new ArrayList<>();
+    @Then("verify that deleted files are ordered by oldest to newest as default")
+    public void verifyThatDeletedFilesAreOrderedByOldestToNewestAsDefault() {
+        for(int i=0;i<new DeletedFilesPage().dateLast.size();i++){
+            long milliseconds = Long.parseLong(new DeletedFilesPage().dateLast.get(i).getAttribute("data-timestamp"));
+            timestamp = new Timestamp(milliseconds);
+            date = new Date(timestamp.getTime());
+            dateList1.add(date);
+        }
+        System.out.println("dateList1.toString() = " + dateList1.toString());
+
+        for (int i=0;i<dateList1.size()-1;i++){
+            boolean oldest = dateList1.get(i).after(dateList1.get(i+1));
+            if(oldest) {
+                verificationSuccess1 = false;
+                break;
+            }
+        }
+        Assert.assertTrue(verificationSuccess1);
+    }
+
+
+    @When("click the deleted button")
+    public void clickTheDeletedButton() {
+        new DeletedFilesPage().deletedButton.click();
+    }
+
+    boolean verificationSuccess2 = true;
+    List<Date> dateList2 = new ArrayList<>();
+    @Then("verify that deleted files are ordered by newest to oldest")
+    public void verifyThatDeletedFilesAreOrderedByNewestToOldest() {
+
+        for(int i=0;i<new DeletedFilesPage().dateLast.size();i++){
+            long milliseconds = Long.parseLong(new DeletedFilesPage().dateLast.get(i).getAttribute("data-timestamp"));
+            timestamp = new Timestamp(milliseconds);
+            date = new Date(timestamp.getTime());
+            dateList2.add(date);
+        }
+        System.out.println("dateList2.toString() = " + dateList2.toString());
+
+        for (int i=0;i<dateList2.size()-1;i++){
+            boolean newest = dateList2.get(i).before(dateList2.get(i+1));
+            if(newest) {
+                verificationSuccess2 = false;
+                break;
+            }
+        }
+        Assert.assertTrue(verificationSuccess2);
+
+    }
 }

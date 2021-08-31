@@ -79,4 +79,11 @@ public class DashboardStepDefs {
         System.out.println(searchNameText);
         Assert.assertEquals(fileName,searchNameText);
     }
+
+    @Then("the user click to {string} file")
+    public void theUserClickToFile(String fileName) {
+
+        new  DashboardPage().clickSearchName(fileName);
+
+    }
 }

@@ -3,6 +3,8 @@ package com.symund.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class FilesPageEC extends BasePage{
 
     @FindBy(xpath = "((//tbody[@id='fileList']/tr)[1]/td)[1]/label")
@@ -28,6 +30,9 @@ public class FilesPageEC extends BasePage{
 
     @FindBy(css = ".nav-icon-trashbin.svg.active")
     public WebElement obligatoryDeletedFilesButton2;
+
+    @FindBy(xpath = "(//tbody[@id='fileList'])[1]/tr")
+    public List<WebElement> rows;
 
 
 
