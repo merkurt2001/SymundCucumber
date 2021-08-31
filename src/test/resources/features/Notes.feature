@@ -36,7 +36,7 @@ Feature:
 	# # {color:#172b4d}User can see the number of letters and words that the note includes under the note title when clicked on the details of the note{color}
 	# # {color:#172b4d}User can create a new category by passing a new category name from inside the notes details{color}
 	# # *{color:#172b4d}User can delete any note{color}*
-	@SYMU-499 @wip
+	@SYMU-499
 	Scenario: Verify that user can delete any note-BT
 		When the user navigate to "notes" page
 		And the user should be able to click on the three dots next to the new note created

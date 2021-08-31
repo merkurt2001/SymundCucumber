@@ -28,7 +28,7 @@ Feature: Profile Settings
       | Twitter         |
       | Language        |
       | Locale          |
-@wip
+
 Scenario: User can change "Full name" info under Profile Settings page
   When the user deletes the current full name and types new full name as "guney"
  # And the user confirms the password typing "Employee123"
