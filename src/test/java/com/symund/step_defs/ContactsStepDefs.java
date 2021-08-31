@@ -62,6 +62,7 @@ public class ContactsStepDefs {
         String expect=name;
         BrowserUtils.waitFor(3);
         String actual=contactsPage.list.get(0).getText();
+
         Assert.assertTrue(actual.contains(expect));
 
 
@@ -74,6 +75,7 @@ public class ContactsStepDefs {
         WebElement png=Driver.get().findElement(By.xpath("//span//span[text()='"+name+"']"));
         png.click();
         new ContactsPage().ChooseButton.click();
+        BrowserUtils.waitFor(3);
         String expect="contact-header-avatar__photo";
         String actual=new ContactsPage().AfterUploadPicture.getAttribute("class");
         Assert.assertEquals(expect,actual);

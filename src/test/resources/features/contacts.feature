@@ -11,8 +11,9 @@ Feature:Contacts module
     Then "<name>" contacts appears in the All contacts list
 
       Examples:
-      |name   |lastname|
-      |mike  | smith |
+      |name  |lastname|
+      |mike  | smith  |
+
 
 
 
@@ -27,11 +28,17 @@ Feature:Contacts module
 
 
   @SYMU-474
-  Scenario: Verify that user can change pfofile  picture
+  Scenario Outline: Verify that user can change profile  picture
     And Click to "first contacts"
     And Click to "Picture"
     Then Click to "Choose from file"
-    Then choose "Yeni-Toyota" picture
+    Then choose "<choosen>" picture
+    Examples:
+    |choosen           |
+    |Yeni-Toyota       |
+    |KTM-RC-390-White-5|
+
+
 
 
   @SYMU-475
