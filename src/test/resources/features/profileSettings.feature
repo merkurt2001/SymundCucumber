@@ -36,7 +36,6 @@ Scenario: User can change "Full name" info under Profile Settings page
 
 Scenario: User can make "Phone number" info as private under Profile Settings page
   When the user clicks on the phone number options
-  And
 
 
 

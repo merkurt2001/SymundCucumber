@@ -72,4 +72,9 @@ public class ProfileSettingsStepdefs {
         Assert.assertEquals(newFullname, page.userProfile.getAttribute("title"));
 
     }
+
+    @When("the user clicks on the phone number options")
+    public void theUserClicksOnThePhoneNumberOptions() {
+        page.phoneNumberOptions.click();
+    }
 }
