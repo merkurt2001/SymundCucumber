@@ -1,5 +1,6 @@
 package com.symund.step_defs;
 import com.symund.pages.FilesPage;
+import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -18,31 +19,32 @@ public class FilesStepDefs {
 
     @When("user clicks {string}")
     public void user_clicks(String button) {
+        BrowserUtils.waitFor(3);
 
 
         if (button.contains("files module")) {
             filesPage.filesIcon.click();
-        } else if (button.contains("menu icon")) {
-            filesPage.menuIcon.click();
+        } else if (button.contains("rename")) {
+            filesPage.renameButton.click();
+        } else if (button.contains("Details")) {
+            filesPage.detailsButton.click();
         } else if (button.contains("favorites tab")) {
             filesPage.favoritesTab.click();
         } else if (button.contains("Comments")) {
             filesPage.commentsTab.click();
         } else if (button.contains("Comments TextBox")) {
             filesPage.commentTextBox.click();
-        } else if (button.contains("Comment submit icon")){
+        } else if (button.contains("Comment submit icon")) {
             filesPage.submitCommitButton.click();
-         } else if(button.contains("add to favorites")){
-            filesPage.addToFavorites.click();
-        }  else if (button.contains("rename")){
-                filesPage.renameButton.click();
-                }
-        else if  (button.contains("Details")){
-            filesPage.detailsButton.click();
-        }
+        } else if (button.contains("add to favorite")&& filesPage.addToFavorites.getText().contains("Add to favorites")){
+            //filesPage.removeFromFavorites.click();
+             filesPage.addToFavorites.click();
+             }else  {
+                 filesPage.removeFromFavorites.click();
+                 filesPage.addToFavorites.click();
+
             }
-
-
+        }
 
 
 
@@ -62,16 +64,17 @@ public class FilesStepDefs {
 
     @Then("user should see selected file in favorites")
     public void user_should_see_selected_file_in_favorites() {
+        BrowserUtils.waitFor(3);
+
+       Assert.assertTrue(filesPage.selectedFile.getText().contains("Favorite"));
 
     }
 
-    @When("user enters new file name into the line which just appear")
-    public void user_enters_new_file_name_into_the_line_which_just_appear() {
+    @And("user enters comment {string}")
+    public void userEntersComment(String comment) {
 
-        String oldName = filesPage.selectedFile.getText();
-        String newName = "Renamed File";
-
-        filesPage.fileNameText.sendKeys("Renamed File");
+        String commentMessage = comment;
+        filesPage.commentTextBox.sendKeys(comment);
 
     }
 
@@ -79,14 +82,30 @@ public class FilesStepDefs {
     @Then("user should see written comment")
     public void user_should_see_written_comment() {
 
+        BrowserUtils.waitFor(3);
+        Assert.assertTrue(filesPage.comments.getText().equals("comment"));
 
 
 
     }
 
+    @Then("user should be able to delete comment")
+    public void user_should_be_able_to_delete_comment() {
+
+        filesPage.deleteComment.click();
+        Assert.assertFalse(filesPage.comments.getText().contains("Hello") );
+
+    }
+
+
     @Given("the user on comments section")
     public void the_user_on_comments_section() {
 
+
+        filesPage.filesIcon.click();
+        filesPage.threeDotsMenu.click();
+        filesPage.detailsButton.click();
+        filesPage.commentsTab.click();
        Assert.assertTrue(filesPage.commentsTab.isDisplayed());
 
     }
@@ -94,12 +113,10 @@ public class FilesStepDefs {
     @When("user clicks three dots menu between the selected comment")
     public void user_clicks_three_dots_menu_between_the_selected_comment() {
 
-    }
 
-    @Then("user should be able to delete comment")
-    public void user_should_be_able_to_delete_comment() {
 
     }
+
 
 
     @And("user enters new file name {string}")
@@ -111,17 +128,12 @@ public class FilesStepDefs {
 
     }
 
-    @And("user enters comment {string}")
-    public void userEntersComment(String comment) {
-
-        filesPage.commentTextBox.sendKeys(comment + Keys.ENTER);
-
-    }
-
     @Then("user should see the file with updated name")
     public void user_should_see_the_file_with_updated_name() {
 
         String newFileName = filesPage.selectedFile.getText();
+        Assert.assertNotEquals("oldFileName", newFileName);
+        Assert.assertEquals("fileName", newFileName);
     }
 
 

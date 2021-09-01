@@ -9,8 +9,6 @@ Feature: Files Options
 		When user clicks "files module"
 		And user clicks three dots menu which is right side of selected file
 		And user clicks "add to favorite"
-		Then user should see star symbol above the selected files icon
-		And user clicks "menu icon"
 		And user clicks "favorites tab"
 		Then user should see selected file in favorites
 

@@ -10,7 +10,7 @@ public class FilesPage extends BasePage {
     @FindBy (xpath = "//*[@data-id='files']")
     public WebElement filesIcon;
 
-@FindBy(css = "//a[text()='Favorites']")
+@FindBy(css = "//*[@data-id='favorites']")
     public WebElement favoritesTab;
 
 @FindBy(xpath = "//*[@aria-controls='tab-comments']")
@@ -22,7 +22,7 @@ public class FilesPage extends BasePage {
 @FindBy (xpath = "//*[@class='comment__submit icon-confirm has-tooltip']")
         public WebElement submitCommitButton;
 
-@FindBy (xpath = "//*[@class='icon-menu']")
+@FindBy (xpath = "//*[@class='icon-menu'] [@id='app-navigation-toggle']")
     public WebElement menuIcon;
 
 @FindBy(xpath = "//*[@data-tags='_$!<Favorite>!$_']")
@@ -40,21 +40,28 @@ public class FilesPage extends BasePage {
 @FindBy (xpath = "//*[@class=' action-rename-container']")
     public WebElement renameButton;
 
-@FindBy (xpath = "//span[text()='Add to favorites'] ")
+@FindBy (className = "action-favorite-container")
 public WebElement addToFavorites;
+
+@FindBy (xpath = "//*[@class='action-favorite-container']")
+public WebElement removeFromFavorites;
+
 
 @FindBy (xpath = "//*[@data-id='1240']")
     public WebElement selectedFile;
 
-@FindBy (xpath = "//*[@class='action-1']")
+@FindBy (xpath = "//*[@class=' action-details-container']")
     public WebElement detailsButton;
 
 
 @FindBy (xpath = "//*[@class='comment comments__list']")
     public WebElement newComment;
 
+@FindBy (xpath = "//*[@class='comment__message']")
+    public WebElement comments;
 
-
+@FindBy (xpath = "//*[@class='action active']")
+    public WebElement deleteComment;
 
 
 }
