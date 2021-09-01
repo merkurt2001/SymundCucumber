@@ -30,9 +30,12 @@ Feature: Profile Settings
       | Locale          |
 
 Scenario: User can change "Full name" info under Profile Settings page
-  When the user deletes the current full name and types new full name as "umit guney"
+  When the user deletes the current full name and types new full name as "guney"
+ # And the user confirms the password typing "Employee123"
+  And new full name "guney" should be displayed under profile icon after refreshing the page
 
-
+Scenario: User can make "Phone number" info as private under Profile Settings page
+  When the user clicks on the phone number options
 
 
 

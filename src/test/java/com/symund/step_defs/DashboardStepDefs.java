@@ -1,6 +1,7 @@
 package com.symund.step_defs;
 
 import com.symund.pages.DashboardPage;
+import com.symund.pages.FilesPage;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -85,5 +86,10 @@ public class DashboardStepDefs {
 
         new  DashboardPage().clickSearchName(fileName);
 
+    }
+
+    @And("the user should see the details side page of the {string} file")
+    public void theUserShouldSeeTheDetailsSidePageOfTheFile(String fileName) {
+        new DashboardPage().getSidebarMainTitle(fileName);
     }
 }
