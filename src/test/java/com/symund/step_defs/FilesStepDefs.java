@@ -21,23 +21,24 @@ public class FilesStepDefs {
     public void user_clicks(String button) {
         BrowserUtils.waitFor(3);
 
-      //  if (button.equals("files module")) {
-         //   filesPage.filesIcon.click();
-     //   } else if (button.equals("rename")) {
-          //  filesPage.renameButton.click();
-      //  } else if (button.equals("Details")) {
-          //  filesPage.detailsButton.click();
-       // } else if (button.equals("favorites tab")) {
-           // filesPage.favoritesTab.click();
+
+        //  if (button.equals("files module")) {
+        //   filesPage.filesIcon.click();
+        //   } else if (button.equals("rename")) {
+        //  filesPage.renameButton.click();
+        //  } else if (button.equals("Details")) {
+        //  filesPage.detailsButton.click();
+        // } else if (button.equals("favorites tab")) {
+        // filesPage.favoritesTab.click();
         //} else if (button.equals("Comments")) {
-          //  filesPage.commentsTab.click();
-     //   } else if (button.equals("Comments TextBox")) {
-           // filesPage.commentTextBox.click();
-       // } else if (button.equals("Comment submit icon")) {
-          //  filesPage.submitCommitButton.click();
-       // } else if (button.equals("add to favorite")){
-            //filesPage.removeFromFavorites.click();
-           // filesPage.addToFavorites.click();
+        //  filesPage.commentsTab.click();
+        //   } else if (button.equals("Comments TextBox")) {
+        // filesPage.commentTextBox.click();
+        // } else if (button.equals("Comment submit icon")) {
+        //  filesPage.submitCommitButton.click();
+        // } else if (button.equals("add to favorite")){
+        //filesPage.removeFromFavorites.click();
+        // filesPage.addToFavorites.click();
 
 
         switch (button) {
@@ -96,7 +97,9 @@ public class FilesStepDefs {
     public void user_should_see_selected_file_in_favorites() {
         BrowserUtils.waitFor(3);
 
-       Assert.assertTrue(filesPage.selectedFile.getText().contains("Favorite"));
+
+        Assert.assertTrue(filesPage.selectedFile.getText().contains("Favorite"));
+
 
     }
 
@@ -138,6 +141,7 @@ public class FilesStepDefs {
         filesPage.commentsTab.click();
        Assert.assertTrue(filesPage.commentsTab.isDisplayed());
 
+
     }
 
     @When("user clicks three dots menu between the selected comment")
@@ -162,9 +166,17 @@ public class FilesStepDefs {
     public void user_should_see_the_file_with_updated_name() {
 
         String newFileName = filesPage.selectedFile.getAttribute("name");
-       // Assert.assertNotEquals(oldFileName, newFileName);
-        //Assert.assertEquals(fileName, newFileName);
+
+        // Assert.assertNotEquals(oldFileName, newFileName);
+
     }
 
 
 }
+
+
+
+
+
+
+

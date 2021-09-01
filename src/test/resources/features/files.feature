@@ -39,4 +39,3 @@ Feature: Files Options
 		And user clicks "delete comment"
 		Then user should be able to delete comment
 
-
