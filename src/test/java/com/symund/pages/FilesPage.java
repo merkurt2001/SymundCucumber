@@ -34,7 +34,7 @@ public class FilesPage extends BasePage {
 @FindBy (xpath = "//*[@class='action action-menu permanent']")
     public WebElement threeDotsMenu;
 
-@FindBy (xpath = "//*[@class='innernametext']")
+@FindBy (xpath = "//*[@data-id='7822']")
     public WebElement fileNameText;
 
 @FindBy (xpath = "//*[@class=' action-rename-container']")
