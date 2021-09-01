@@ -90,12 +90,11 @@ public class ContactsStepDefs {
 
         ContactsPage contactsPage=new ContactsPage();
         WebElement delete=Driver.get().findElement(By.cssSelector("span.action-button__icon.icon-delete"));
-        System.out.println(contactsPage.list.size());
-        String BeforeDelete=contactsPage.list.get(0).getText();
+        int BeforeDelete=contactsPage.list.size();
         delete.click();
         BrowserUtils.waitFor(3);
-        String AfterDelete=contactsPage.list.get(0).getText();
-        Assert.assertFalse(BeforeDelete.equals(AfterDelete));
+        int AfterDelete=contactsPage.list.size();
+        Assert.assertFalse(BeforeDelete==AfterDelete);
 
 
 

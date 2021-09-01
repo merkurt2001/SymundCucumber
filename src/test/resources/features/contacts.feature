@@ -43,7 +43,7 @@ Feature:Contacts module
 
 
 
-  @SYMU-475
+  @SYMU-475 @wip
   Scenario: Verfy that user can delete contact
     And Click to "first contacts"
     And Click to "icon"
