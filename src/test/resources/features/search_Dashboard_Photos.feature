@@ -8,33 +8,32 @@ Feature:
 
 	@SYMU-477
 	Scenario: Magnifying glass icon functionalities-UY
-		When the user go to "magnifyIcon" tab
-		And the user types file name as "Photo" and can see file full name
-		Then the user go to "Photo" tab
-		And the user should see the details side page of the "Photo" file
+		Then the user click to "magnifyIcon"
+		And the user types file name "Talk" and can see file name at first row
+		Then the user click to "Talk" file
+		And the user should see the details side page of the "Talk" file
 
 	@SYMU-479
 	Scenario: Search contacts by clicking on the contacts icon - UY
-		When the user go to "contactsMenu" tab
+		Then the user click to "contactsMenu"
 		Then the user types file name as "uguney" and can see file full name
 
 
 	@SYMU-480
 	Scenario:  Images files under the Photos module - UY
-		When the user navigate to "Photos" page
-		Then see only the images files with the extension of .jpeg/.jpg
+		When the user navigate to "photos" page
+		Then see only the images files with the extension of jpeg jpg
 
 
 	@SYMU-481
 	Scenario: Navigate to Dashboard page by clicking the Symund icon - UY
 
-	Scenario Outline: Dashboard
+	Scenario Outline: Symund icon
 		When the user navigate to "<navigatePageName>" page
-		Then the user go to "symundIcon" tab
+		Then the user click to "pageLogo"
 		Then the user on "dashboard" page
 		Examples:
 			| navigatePageName |
-			| dashboard        |
 			| files            |
 			| photos           |
 			| activity         |

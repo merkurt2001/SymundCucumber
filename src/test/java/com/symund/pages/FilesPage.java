@@ -50,8 +50,10 @@ public class FilesPage extends BasePage {
 //@FindBy (className = "action-favorite-container")
 //public WebElement addToFavorites;
 
+
     @FindBy(xpath = "//*[@class='action-favorite-container']")
     public WebElement removeFromFavorites;
+
 
 
     @FindBy(xpath = "//*[@data-id='1240']")

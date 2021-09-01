@@ -21,6 +21,7 @@ public class FilesStepDefs {
     public void user_clicks(String button) {
         BrowserUtils.waitFor(3);
 
+
         //  if (button.equals("files module")) {
         //   filesPage.filesIcon.click();
         //   } else if (button.equals("rename")) {
@@ -96,7 +97,9 @@ public class FilesStepDefs {
     public void user_should_see_selected_file_in_favorites() {
         BrowserUtils.waitFor(3);
 
+
         Assert.assertTrue(filesPage.selectedFile.getText().contains("Favorite"));
+
 
     }
 
@@ -136,7 +139,8 @@ public class FilesStepDefs {
         filesPage.threeDotsMenu.click();
         filesPage.detailsButton.click();
         filesPage.commentsTab.click();
-        Assert.assertTrue(filesPage.commentsTab.isDisplayed());
+       Assert.assertTrue(filesPage.commentsTab.isDisplayed());
+
 
     }
 
@@ -162,8 +166,9 @@ public class FilesStepDefs {
     public void user_should_see_the_file_with_updated_name() {
 
         String newFileName = filesPage.selectedFile.getAttribute("name");
+
         // Assert.assertNotEquals(oldFileName, newFileName);
-        //Assert.assertEquals(fileName, newFileName);
+
     }
 
 
