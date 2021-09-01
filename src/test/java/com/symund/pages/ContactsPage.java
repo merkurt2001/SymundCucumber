@@ -29,6 +29,8 @@ public class ContactsPage extends BasePage{
     public List<WebElement> list;
     @FindBy(xpath = "//div[@class='app-navigation-entry__counter']")
     public WebElement ContactsNumber;
+    @FindBy(id = "contact-fullname")
+    public WebElement fullName;
 
 
 

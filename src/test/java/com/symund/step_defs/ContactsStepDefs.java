@@ -46,7 +46,7 @@ public class ContactsStepDefs {
 
 
         ContactsPage contactsPage=new ContactsPage();
-        contactsPage.Company.sendKeys(company);
+        contactsPage.Company.sendKeys(company+Keys.ENTER);
         contactsPage.Title.sendKeys(title+ Keys.ENTER);
         BrowserUtils.waitFor(3);
 

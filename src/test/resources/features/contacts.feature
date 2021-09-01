@@ -13,8 +13,8 @@ Feature:Contacts module
       Examples:
       |name  |lastname|
       |mike  | smith  |
-      |steven|king    |
-      |elon  |musk    |
+      |steven| king    |
+      |elon  | musk    |
 
 
 
@@ -43,7 +43,7 @@ Feature:Contacts module
 
 
 
-  @SYMU-475 @wip
+  @SYMU-475
   Scenario: Verfy that user can delete contact
     And Click to "first contacts"
     And Click to "icon"
