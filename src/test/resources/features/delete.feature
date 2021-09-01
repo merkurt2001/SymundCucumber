@@ -40,14 +40,14 @@ Feature: delete functionalities
         And get all folder names
         Then verify that restored file is seen under the All Files tab
 
-      @wip
+
       Scenario: User should able to order the all deleted files by oldest to newest
         Given the user navigate left side to "Deleted files"
         Then verify that deleted files are ordered by oldest to newest as default
 
 
 
-      @wip
+
       Scenario:  User should able to order the all deleted files by newest to oldest
         Given the user navigate left side to "Deleted files"
         When click the deleted button

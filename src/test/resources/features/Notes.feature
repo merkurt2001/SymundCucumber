@@ -24,7 +24,7 @@ Feature:
 		Then the user should be able to write new categories name
 		And the user click the set category button
 		And the user click the categories button under new note button
-		And the user can see new category appears	
+		And the user can see new category appears
 
 	#{color:#00875a}+*User Story :*+{color}
 	#
@@ -52,10 +52,12 @@ Feature:
 	# # {color:#172b4d}User can see the number of letters and words that the note includes under the note title when clicked on the details of the note{color}
 	# # {color:#172b4d}User can create a new category by passing a new category name from inside the notes details{color}
 	# # {color:#172b4d}User can delete any note{color}
-	@SYMU-485
+	@SYMU-485 @wip
 	Scenario: Verify that user can create new note -BT
 		When the user navigate to "notes" page
-		Then the user can see empty page and write something	
+		And the user click the new note button
+		And the user write anything inside the new note
+		Then the user should be able to create new note and title matches with the first words
 
 	#{color:#00875a}+*User Story :*+{color}
 	#
@@ -87,7 +89,7 @@ Feature:
 	# # {color:#172b4d}User can delete any note{color}
 	#
 	# 
-	@SYMU-492 @wip
+	@SYMU-492
 	Scenario: Verify that user can see the number of letters and words that the note includes under the note-BT
 		When the user navigates to "notes" page
 		And the user click the favorites notes under the categories

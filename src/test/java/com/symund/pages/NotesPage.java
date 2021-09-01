@@ -38,7 +38,7 @@ public class NotesPage extends BasePage {
     @FindBy(xpath = "//button[contains(.,'Delete note')]")
     public WebElement delete;
 
-    @FindBy(xpath = "//div[@class='CodeMirror-scroll']")
+    @FindBy(css = "div.markdown-editor>textarea")
     public WebElement emptyPage;
 
     @FindBy(xpath = "//a[.='Favorites']")
@@ -52,6 +52,15 @@ public class NotesPage extends BasePage {
 
     @FindBy(xpath = "//header[@class='app-sidebar-header']/a[@href='#']")
     public WebElement close;
+
+    @FindBy(xpath = "//button[@id='notes_new_note']")
+    public WebElement newNote;
+
+    @FindBy(xpath = "//a[@href='/index.php/apps/notes/note/8041']/span[@class='app-navigation-entry__title']")
+    public WebElement helloWorld;
+
+    @FindBy(xpath = "//span[.='Full screen']")
+    public WebElement fullScreen;
 
 
 }
