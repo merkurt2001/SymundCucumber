@@ -21,25 +21,52 @@ public class FilesStepDefs {
     public void user_clicks(String button) {
         BrowserUtils.waitFor(3);
 
-
-        if (button.equals("files module")) {
-            filesPage.filesIcon.click();
-        } else if (button.equals("rename")) {
-            filesPage.renameButton.click();
-        } else if (button.equals("Details")) {
-            filesPage.detailsButton.click();
-        } else if (button.equals("favorites tab")) {
-            filesPage.favoritesTab.click();
-        } else if (button.equals("Comments")) {
-            filesPage.commentsTab.click();
-        } else if (button.equals("Comments TextBox")) {
-            filesPage.commentTextBox.click();
-        } else if (button.equals("Comment submit icon")) {
-            filesPage.submitCommitButton.click();
-        } else if (button.equals("add to favorite")){
+      //  if (button.equals("files module")) {
+         //   filesPage.filesIcon.click();
+     //   } else if (button.equals("rename")) {
+          //  filesPage.renameButton.click();
+      //  } else if (button.equals("Details")) {
+          //  filesPage.detailsButton.click();
+       // } else if (button.equals("favorites tab")) {
+           // filesPage.favoritesTab.click();
+        //} else if (button.equals("Comments")) {
+          //  filesPage.commentsTab.click();
+     //   } else if (button.equals("Comments TextBox")) {
+           // filesPage.commentTextBox.click();
+       // } else if (button.equals("Comment submit icon")) {
+          //  filesPage.submitCommitButton.click();
+       // } else if (button.equals("add to favorite")){
             //filesPage.removeFromFavorites.click();
-             filesPage.addToFavorites.click();
+           // filesPage.addToFavorites.click();
 
+
+        switch (button) {
+            case "files module":
+                filesPage.filesIcon.click();
+                break;
+            case "rename":
+                filesPage.renameButton.click();
+                break;
+            case "Details":
+                filesPage.detailsButton.click();
+                break;
+            case "favorites tab":
+                filesPage.favoritesTab.click();
+                break;
+            case "Comments":
+                filesPage.commentsTab.click();
+                break;
+            case "Comments TextBox":
+                filesPage.commentTextBox.click();
+                break;
+            case "Comment submit icon":
+                filesPage.submitCommitButton.click();
+                break;
+            case "add to favorite":
+                //filesPage.removeFromFavorites.click();
+                filesPage.addToFavorites.click();
+
+                break;
         }
     }
 //} else if (button.contains("add to favorite")&& filesPage.addToFavorites.getText().contains("Add to favorites")){
