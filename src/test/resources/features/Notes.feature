@@ -87,7 +87,7 @@ Feature:
 	# # {color:#172b4d}User can delete any note{color}
 	#
 	# 
-	@SYMU-492
+	@SYMU-492 @wip
 	Scenario: Verify that user can see the number of letters and words that the note includes under the note-BT
 		When the user navigates to "notes" page
 		And the user click the favorites notes under the categories
