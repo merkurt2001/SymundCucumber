@@ -19,7 +19,6 @@ Feature: Profile Settings
 		    When the user deletes the current full name and types new full name as "guney"
 		    Then new full name "guney" should be displayed under profile icon after refreshing the page	
 
-
 	@SYMU-515
 	Scenario: Verify that user can see following titles inside personal info on the Profile Settings page
 		When the user clicks user profile icon and after clicks on settings option
@@ -34,7 +33,6 @@ Feature: Profile Settings
 		      | Language        |
 		      | Locale          |	
 
-
 	@SYMU-517
 	Scenario Outline: Verify that user can make phone number info as "<options>" under Profile Settings page
 		    When the user clicks user profile icon and after clicks on settings option
@@ -47,7 +45,6 @@ Feature: Profile Settings
 		      | Local     | password |
 		      | Federated | dark     |
 		      | Published | link     |	
-
 
 	@SYMU-518
 	Scenario: Verify that user can see the current local time under the Local dropdown
