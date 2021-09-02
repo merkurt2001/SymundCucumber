@@ -61,8 +61,8 @@ public class ContactGroupsStepDefs {
 
     @And("user clicks on a contact")
     public void userClicksOnAContact() {
-        addedContactName = contactGroupsPage.allContacts.get(0).getText();
-        contactGroupsPage.allContacts.get(0).click();
+        addedContactName = contactGroupsPage.AllContact.get(0).getText();
+        contactGroupsPage.AllContact.get(0).click();
     }
 
     @And("user clicks on Groups option under related contact")
@@ -87,7 +87,7 @@ public class ContactGroupsStepDefs {
                 break;
             }
         }
-        for (WebElement contact: contactGroupsPage.allContacts) {
+        for (WebElement contact: contactGroupsPage.AllContact) {
             if(contact.getText().equals(addedContactName)){
               Assert.assertTrue("Verify that contact is added to that group",true);
               break;
