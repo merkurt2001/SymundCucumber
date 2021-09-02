@@ -1,8 +1,11 @@
 package com.symund.pages;
 
-import com.sun.deploy.config.WinPlatform;
+import com.symund.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class FilesPage extends BasePage {
 
@@ -10,7 +13,7 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//*[@data-id='files']")
     public WebElement filesIcon;
 
-    @FindBy(css = "//*[@data-id='favorites']")
+    @FindBy(xpath = "//*[@data-id='favorites']")
     public WebElement favoritesTab;
 
     @FindBy(xpath = "//*[@aria-controls='tab-comments']")
@@ -55,8 +58,7 @@ public class FilesPage extends BasePage {
     public WebElement removeFromFavorites;
 
 
-
-    @FindBy(xpath = "//*[@data-id='1240']")
+    @FindBy(xpath = "//*[@id='app-content-favorites']//span[@class='nametext']")
     public WebElement selectedFile;
 
     @FindBy(xpath = "//*[@class=' action-details-container']")
@@ -72,6 +74,71 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//*[@class='action active']")
     public WebElement deleteComment;
 
+    @FindBy(xpath = "//*[@class='action-item comment__actions'][1]")
+    public WebElement commentThreeDots;
+
+
+   // @FindBy (xpath ="//*[@class='comment comments__list']//*[@class='comment__message' and text()='"+comment+"']")
+    //public WebElement selectedComment;
+
+
+    public WebElement threeDots(String fileName) {
+        WebElement threeDot = null;
+        String extension = "";
+        String fileNameWithoutExt = "";
+        if (fileName.contains(".")) {
+            fileNameWithoutExt = fileName.substring(0, fileName.lastIndexOf("."));
+            extension = fileName.substring(fileName.lastIndexOf("."));
+            threeDot = Driver.get().findElement(By.
+                    xpath("//div[@id='app-content-files']//span[@class='nametext']//span[text()='" + fileNameWithoutExt + "']/..//span[text()='" + extension + "']/../..//span[@class='fileactions']//span[@class='icon icon-more']"));
+        } else {
+            threeDot = Driver.get().findElement(By.
+                    xpath("//div[@id='app-content-files']//span[@class='nametext']//span[text()='" + fileName + "']/../..//span[@class='fileactions']//span[@class='icon icon-more'] "));
+
+        }
+
+        return threeDot;
+    }
+
+
+    public List<WebElement> selectedFavouriteFile(String fileName) {
+
+
+        List<WebElement> files;
+
+        String extension = "";
+        String fileNameWithoutExt = "";
+        if (fileName.contains(".")) {
+            fileNameWithoutExt = fileName.substring(0, fileName.lastIndexOf("."));
+            extension = fileName.substring(fileName.lastIndexOf("."));
+            System.out.println(fileNameWithoutExt);
+            System.out.println(extension);
+            files = Driver.get().findElements(By.xpath("//*[@id='app-content-favorites']//span[@class='innernametext' and text()='" + fileNameWithoutExt + "']/..//span[@class='extension' and text()='" + extension + "']"));
+        } else {
+            files = Driver.get().findElements(By.xpath("//*[@id='app-content-favorites']//span[@class='innernametext' and text()='" + fileName + "']"));
+        }
+
+        return files;
+
+
+    }
+
+    public List<WebElement> selectedCommentText(String comment) {
+
+      List<WebElement> comments;
+
+       comments = Driver.get().findElements(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']"));
+        return comments;
+    }
+
+public List<WebElement> selectedCommentThreeDots(String comment){
+
+        List<WebElement> commentThreeDots;
+
+        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message comment__message--expanded' and text()='" +comment+ "']/../..//*[@class='action-item comment__actions']"));
+
+
 
 }
 
+}

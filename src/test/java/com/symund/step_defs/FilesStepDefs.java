@@ -21,26 +21,6 @@ public class FilesStepDefs {
     public void user_clicks(String button) {
         BrowserUtils.waitFor(3);
 
-
-        //  if (button.equals("files module")) {
-        //   filesPage.filesIcon.click();
-        //   } else if (button.equals("rename")) {
-        //  filesPage.renameButton.click();
-        //  } else if (button.equals("Details")) {
-        //  filesPage.detailsButton.click();
-        // } else if (button.equals("favorites tab")) {
-        // filesPage.favoritesTab.click();
-        //} else if (button.equals("Comments")) {
-        //  filesPage.commentsTab.click();
-        //   } else if (button.equals("Comments TextBox")) {
-        // filesPage.commentTextBox.click();
-        // } else if (button.equals("Comment submit icon")) {
-        //  filesPage.submitCommitButton.click();
-        // } else if (button.equals("add to favorite")){
-        //filesPage.removeFromFavorites.click();
-        // filesPage.addToFavorites.click();
-
-
         switch (button) {
             case "files module":
                 filesPage.filesIcon.click();
@@ -51,7 +31,7 @@ public class FilesStepDefs {
             case "Details":
                 filesPage.detailsButton.click();
                 break;
-            case "favorites tab":
+            case "favorites":
                 filesPage.favoritesTab.click();
                 break;
             case "Comments":
@@ -66,7 +46,10 @@ public class FilesStepDefs {
             case "add to favorite":
                 //filesPage.removeFromFavorites.click();
                 filesPage.addToFavorites.click();
+                break;
 
+            case "delete comment":
+                filesPage.deleteComment.click();
                 break;
         }
     }
@@ -79,48 +62,15 @@ public class FilesStepDefs {
 //
 //            }
 
-    @When("user clicks three dots menu which is right side of selected file")
-    public void user_clicks_three_dots_menu_which_is_right_side_of_selected_file() {
 
-        filesPage.threeDotsMenu.click();
-
-    }
-
-
-    @Then("user should see star symbol above the selected files icon")
-    public void user_should_see_star_symbol_above_the_selected_files_icon() {
-
-    }
-
-
-    @Then("user should see selected file in favorites")
-    public void user_should_see_selected_file_in_favorites() {
-        BrowserUtils.waitFor(3);
-
-
-        Assert.assertTrue(filesPage.selectedFile.getText().contains("Favorite"));
-
-
-    }
 
     @And("user enters comment {string}")
     public void userEntersComment(String comment) {
 
-        String commentMessage = comment;
         filesPage.commentTextBox.sendKeys(comment);
 
     }
 
-
-    @Then("user should see written comment")
-    public void user_should_see_written_comment() {
-
-        BrowserUtils.waitFor(3);
-        Assert.assertTrue(filesPage.comments.getText().equals("comment"));
-
-
-
-    }
 
     @Then("user should be able to delete comment")
     public void user_should_be_able_to_delete_comment() {
@@ -147,7 +97,7 @@ public class FilesStepDefs {
     @When("user clicks three dots menu between the selected comment")
     public void user_clicks_three_dots_menu_between_the_selected_comment() {
 
-
+    filesPage.selectedCommentText...
 
     }
 
@@ -172,6 +122,35 @@ public class FilesStepDefs {
     }
 
 
+    @Then("user should see written comment {string}")
+    public void userShouldSeeWrittenComment(String comment) {
+
+        System.out.println("Gorme adiminda");
+
+        Assert.assertEquals(comment, filesPage.selectedComment(comment));
+
+
+        System.out.println("Kontrol etti");
+
+    }
+
+    @And("user clicks three dots menu which is right side of {string} file")
+    public void userClicksThreeDotsMenuWhichIsRightSideOfFile(String fileName) {
+
+        filesPage.threeDots(fileName).click();
+
+
+    }
+
+    @Then("user should see {string} in favorites")
+    public void userShouldSeeInFavorites(String fileName) {
+
+        BrowserUtils.waitFor(3);
+
+        Assert.assertTrue(filesPage.selectedFavouriteFile(fileName).size()>0);
+
+
+    }
 }
 
 
