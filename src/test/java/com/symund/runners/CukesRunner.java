@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         dryRun = true,
         tags = "@wip",
         strict=true,
-        monochrome = false
+        monochrome = true
 )
 
 
