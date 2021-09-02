@@ -7,7 +7,6 @@ Feature: Profile Settings
 
 	#User Story :
 	#As a user, I should be able to change profile info settings under the Profile module
-
 	#Acceptance Criteria:
 	# # User can see at least following titles inside personal info under Profile Settings page;=>Full name/Email/Phone Number
 	# # User can change "Full name" info under Profile Settings page
