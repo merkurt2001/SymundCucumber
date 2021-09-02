@@ -1,4 +1,4 @@
-@wip
+
 Feature: Profile Settings
 
 #  User Story :
@@ -33,6 +33,7 @@ Feature: Profile Settings
       | Twitter         |
       | Language        |
       | Locale          |
+
 
 
   Scenario: User can change Full name info under Profile Settings page
