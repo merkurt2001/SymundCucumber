@@ -12,9 +12,11 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features",
         glue = "com/symund/step_defs",
-        dryRun = false,
+        dryRun = true,
         tags = "@wip",
+
         strict=true
+
 )
 
 
