@@ -14,8 +14,9 @@ import org.junit.runner.RunWith;
         glue = "com/symund/step_defs",
         dryRun = true,
         tags = "@wip",
-        strict=true,
-        monochrome = true
+
+        strict=true
+
 )
 
 
