@@ -17,3 +17,8 @@ Feature:
     And the user navigate to "Files" page
     When the user click "Modified" folder view button
     Then the user should be able to see changes order by "Name"
+
+  Scenario:
+    And the user navigate to "Files" page
+    When the user click "Modified" folder view button
+    Then the user should be able to see changes of folder view
