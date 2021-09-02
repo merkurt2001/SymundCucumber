@@ -73,6 +73,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//li[@data-id='logout']")
     public WebElement logout;
 
+    @FindBy(css = "a.user-status-menu-item__toggle")
+    public WebElement onlineStatus;
+
 
 
     public BasePage() {
@@ -110,6 +113,15 @@ public abstract class BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.cssSelector(pageLocator), 5);
         }
+    }
+
+    /*
+    this method navigates you to any of specific file which are located left side
+     */
+    public void navigateToFolderWhichAreLocatedLeftSide(String text){
+        String locator = "//a[.='" + text + "']";
+        WebElement locatorElement = Driver.get().findElement(By.xpath(locator));
+        new Actions(Driver.get()).moveToElement(locatorElement).click().perform();
     }
 
 
