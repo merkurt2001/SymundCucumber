@@ -6,7 +6,7 @@ Feature: Contact Groups Functionality
     Given the user login with valid credentials
 
   @SYMU-520
-
+  #hello
 
   Scenario Outline: Verify that user can create new contact group either with mouse or enter key
     When the user navigate to "contacts" page
