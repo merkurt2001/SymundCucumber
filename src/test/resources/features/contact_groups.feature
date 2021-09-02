@@ -1,4 +1,4 @@
-@SYMU-526 @wip
+@SYMU-526
 Feature: Contact Groups Functionality
 
   Background:
