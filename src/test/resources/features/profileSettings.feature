@@ -4,32 +4,23 @@ Feature:
 	Background:
 		#@SYMU-470
 		Given the user login with valid credentials
-		
 
-	#+*User Story :*+
-	#
+	#User Story :
+
 	#As a user, I should be able to change profile info settings under the Profile module
-	#
-	#+_*Acceptance Criteria:*_+
-	# # User can see at least following titles inside personal info under Profile Settings page;         =>Full name/Email/Phone Number
-	# # *{color:#57d9a3}User can change "Full name" info under Profile Settings page{color}*
+
+	#Acceptance Criteria:
+	# # User can see at least following titles inside personal info under Profile Settings page;=>Full name/Email/Phone Number
+	# # User can change "Full name" info under Profile Settings page
 	# # User can make "Phone number" info as private under Profile Settings page
 	# # User can see the current local time under the Local dropdown
+
 	@SYMU-516
 	Scenario: Verify that user can change Full name info under Profile Settings page
 		    When the user clicks user profile icon and after clicks on settings option
 		    When the user deletes the current full name and types new full name as "guney"
 		    Then new full name "guney" should be displayed under profile icon after refreshing the page	
 
-	#+*User Story :*+
-	#
-	#As a user, I should be able to change profile info settings under the Profile module
-	#
-	#+_*Acceptance Criteria:*_+
-	# # *{color:#57d9a3}User can see at least following titles inside personal info under Profile Settings page;         =>Full name/Email/Phone Number{color}*
-	# # User can change "Full name" info under Profile Settings page
-	# # User can make "Phone number" info as private under Profile Settings page
-	# # User can see the current local time under the Local dropdown
 	@SYMU-515
 	Scenario: Verify that user can see following titles inside personal info on the Profile Settings page
 		When the user clicks user profile icon and after clicks on settings option
@@ -44,15 +35,7 @@ Feature:
 		      | Language        |
 		      | Locale          |	
 
-	#+*User Story :*+
-	#
-	#As a user, I should be able to change profile info settings under the Profile module
-	#
-	#+_*Acceptance Criteria:*_+
-	# # User can see at least following titles inside personal info under Profile Settings page;         =>Full name/Email/Phone Number
-	# # User can change "Full name" info under Profile Settings page
-	# # *{color:#57d9a3}User can make "Phone number" info as private under Profile Settings page{color}*
-	# # User can see the current local time under the Local dropdown
+
 	@SYMU-517
 	Scenario Outline: Verify that user can make phone number info as "<options>" under Profile Settings page
 		    When the user clicks user profile icon and after clicks on settings option
@@ -66,15 +49,7 @@ Feature:
 		      | Federated | dark     |
 		      | Published | link     |	
 
-	#+*User Story :*+
-	#
-	#As a user, I should be able to change profile info settings under the Profile module
-	#
-	#+_*Acceptance Criteria:*_+
-	# # User can see at least following titles inside personal info under Profile Settings page;         =>Full name/Email/Phone Number
-	# # User can change "Full name" info under Profile Settings page
-	# # User can make "Phone number" info as private under Profile Settings page
-	# # *{color:#57d9a3}User can see the current local time under the Local dropdown{color}*
+
 	@SYMU-518
 	Scenario: Verify that user can see the current local time under the Local dropdown
 		    When the user clicks user profile icon and after clicks on settings option
