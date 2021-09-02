@@ -17,7 +17,7 @@ public class DashboardStepDefs {
 
     @When("the user navigate to {string} page")
     public void the_user_navigate_to_page(String pageName) {
-       new DashboardPage().navigateToPage(pageName);
+        new DashboardPage().navigateToPage(pageName);
     }
 
     @Then("the user on {string} page")
