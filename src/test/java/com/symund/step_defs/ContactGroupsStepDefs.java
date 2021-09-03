@@ -67,7 +67,7 @@ public class ContactGroupsStepDefs {
 
     @And("user clicks on Groups option under related contact")
     public void userClicksOnGroupsOptionUnderRelatedContact() {
-        BrowserUtils.waitFor(1);
+
         contactGroupsPage.addContactToGroup.click();
 //        Actions mouse = new Actions(Driver.get());
 //        mouse.moveToElement(contactGroupsPage.addContactToGroup).click().perform();

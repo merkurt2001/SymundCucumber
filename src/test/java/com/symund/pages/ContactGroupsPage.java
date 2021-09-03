@@ -20,10 +20,10 @@ public class ContactGroupsPage extends ContactsPage{
     @FindBy(xpath = "//input[@placeholder='Choose property type']/..")
     public WebElement choosePropertyTypeElement;
 
-    @FindBy(xpath = "//input[@placeholder='Add contact in group']/../div[@class='multiselect__tags-wrap']")
+    @FindBy(xpath = "//input[@placeholder='Add contact in group']/..")
     public WebElement addContactToGroup;
 
-    @FindBy(xpath = "//div[normalize-space(text())='Groups' and @class='property__label']/following-sibling::div//ul/li[@class='multiselect__element']")
+    @FindBy(xpath = "//div[normalize-space(text())='Groups' and @class='property__label']/following-sibling::div//ul/li[@class='multiselect__element']//div[@class='name-parts']")
     public List<WebElement> groupOptions;
 
     @FindBy(css = "span[title='+ New group']")
