@@ -46,5 +46,7 @@ public class FilesPageEC extends BasePage{
     @FindBy(id="filestable")
     public WebElement filesTable;
 
+    @FindBy(css = ".icon-triangle-n")
+    public WebElement sortIndicatorByName;
 
 }
