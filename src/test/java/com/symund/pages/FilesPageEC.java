@@ -1,5 +1,7 @@
 package com.symund.pages;
 
+import com.symund.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,7 +36,15 @@ public class FilesPageEC extends BasePage{
     @FindBy(xpath = "(//tbody[@id='fileList'])[1]/tr")
     public List<WebElement> rows;
 
+    public WebElement folderViewButton(String buttonName){
+        return Driver.get().findElement(By.xpath("//div[@id='app-content-files']//a[contains(.,'"+buttonName+"')]"));
+    }
 
+    @FindBy(id="view-toggle")
+    public WebElement toggleViewBtn;
+
+    @FindBy(id="filestable")
+    public WebElement filesTable;
 
 
 }
