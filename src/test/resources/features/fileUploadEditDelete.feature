@@ -1,3 +1,5 @@
+
+@onAir
 Feature: File upload/edit/delete functionality
 
   Background: Verify that the user is on the Files page
