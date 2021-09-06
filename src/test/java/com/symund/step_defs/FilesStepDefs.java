@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
 import java.io.File;
@@ -28,7 +29,8 @@ public class FilesStepDefs {
                 filesPage.filesIcon.click();
                 break;
             case "rename":
-                filesPage.renameButton.click();
+                JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+                executor.executeScript("arguments[0].click();",filesPage.renameButton);
                 break;
             case "Details":
                 filesPage.detailsButton.click();
@@ -51,8 +53,10 @@ public class FilesStepDefs {
                 break;
 
             case "delete comment":
-                filesPage.deleteComment.click();
+                JavascriptExecutor executor1 = (JavascriptExecutor)Driver.get();
+                executor1.executeScript("arguments[0].click();",filesPage.deleteComment);
                 break;
+
         }
     }
 //} else if (button.contains("add to favorite")&& filesPage.addToFavorites.getText().contains("Add to favorites")){
@@ -92,7 +96,7 @@ public class FilesStepDefs {
     @And("user enters new file name {string}")
     public void userEntersNewFileName(String fileName) {
 
-        filesPage.fileNameText.sendKeys(fileName + ENTER);
+        filesPage.selectedFile.sendKeys(fileName + ENTER);
 
 
     }
@@ -142,16 +146,16 @@ public class FilesStepDefs {
 
         BrowserUtils.waitFor(2);
 
-        filesPage.selectedCommentThreeDots(comment);
+        filesPage.clickToSelectedCommentThreeDots();
         System.out.println("Yorumun uc noktasina tikladi");
 
 
     }
 
-    @Then("user should be able to delete {string} comment")
-    public void userShouldBeAbleToDeleteComment(String comment) {
+    @Then("user should be able to delete comment")
+    public void userShouldBeAbleToDeleteComment() {
 
-        Assert.assertFalse(filesPage.selectedCommentText(comment).isDisplayed());
+        Assert.assertTrue(filesPage.deleteMessage.getText().contains("Comment deleted"));
 
 
     }

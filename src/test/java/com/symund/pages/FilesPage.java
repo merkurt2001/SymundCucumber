@@ -1,10 +1,12 @@
 package com.symund.pages;
 
 
+import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import org.openqa.selenium.By;
 //import com.sun.deploy.config.WinPlatform;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,7 +49,7 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//*[@class='nametext']")
     public WebElement fileNameText;
 
-    @FindBy(xpath = "//*[@data-action='\"Rename\"']")
+    @FindBy(xpath = "//span[@class='icon icon icon-rename']")
     public WebElement renameButton;
 
     @FindBy(xpath = "//a[@data-action='Favorite']")
@@ -74,11 +76,14 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//*[@class='comment__message']")
     public WebElement comments;
 
-    @FindBy(xpath = "//*[@class='action active']//*[@class='action-button focusable']")
+    @FindBy(xpath = "(//*[@class='action-button focusable'])[4]")
     public WebElement deleteComment;
 
     @FindBy(xpath = "//*[@class='action-item comment__actions'][1]")
     public WebElement commentThreeDots;
+
+    @FindBy (xpath = "//*[@class='toastify on dialogs toast-undo toastify-right toastify-top']")
+    public WebElement deleteMessage;
 
 
     // @FindBy (xpath ="//*[@class='comment comments__list']//*[@class='comment__message' and text()='"+comment+"']")
@@ -130,20 +135,22 @@ public class FilesPage extends BasePage {
 
         WebElement comments;
 
-        comments = (WebElement) Driver.get().findElements(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']"));
+        comments =  Driver.get().findElement(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message comment__message--expanded' and text()='" + comment + "']"));
 
         return comments;
 
     }
 
 
-    public List<WebElement> selectedCommentThreeDots(String comment) {
+    public void clickToSelectedCommentThreeDots() {
 
-        List<WebElement> commentThreeDots;
+        WebElement commentThreeDots;
 
-        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']/../..//*[@class='icon action-item__menutoggle action-item__menutoggle--default-icon']"));
+        commentThreeDots =  Driver.get().findElement(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message' and text()='Hello']/..//*[@class='trigger']/button"));
 
+        BrowserUtils.waitFor(2);
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+        executor.executeScript("arguments[0].click();", commentThreeDots);
 
-        return commentThreeDots;
     }
 }
