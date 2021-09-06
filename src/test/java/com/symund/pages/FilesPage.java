@@ -41,10 +41,10 @@ public class FilesPage extends BasePage {
 //@FindBy (xpath = "//*[@class='action action-menu permanent']")
     // public WebElement threeDotsMenu;
 
-    @FindBy(xpath = "//*[@data-id='7822']")
+    @FindBy(xpath = "//*[@class='nametext']")
     public WebElement fileNameText;
 
-    @FindBy(xpath = "//*[@class=' action-rename-container']")
+    @FindBy(xpath = "//*[@data-action='\"Rename\"']")
     public WebElement renameButton;
 
     @FindBy(xpath = "//a[@data-action='Favorite']")
@@ -78,7 +78,7 @@ public class FilesPage extends BasePage {
     public WebElement commentThreeDots;
 
 
-   // @FindBy (xpath ="//*[@class='comment comments__list']//*[@class='comment__message' and text()='"+comment+"']")
+    // @FindBy (xpath ="//*[@class='comment comments__list']//*[@class='comment__message' and text()='"+comment+"']")
     //public WebElement selectedComment;
 
 
@@ -123,21 +123,22 @@ public class FilesPage extends BasePage {
 
     }
 
-    public List<WebElement> selectedCommentText(String comment) {
+    public WebElement selectedCommentText(String comment) {
 
-      List<WebElement> comments;
+        WebElement comments;
 
-       comments = Driver.get().findElements(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']"));
+        comments = (WebElement) Driver.get().findElements(By.xpath("//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']"));
+
         return comments;
+
     }
 
-public List<WebElement> selectedCommentThreeDots(String comment){
+
+public void selectedCommentThreeDots(String comment){
 
         List<WebElement> commentThreeDots;
 
-        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message comment__message--expanded' and text()='" +comment+ "']/../..//*[@class='action-item comment__actions']"));
-
-
+        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment +"']/../..//*[@class='action-item comment__actions']"));
 
 }
 

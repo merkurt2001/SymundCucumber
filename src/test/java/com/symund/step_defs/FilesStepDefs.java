@@ -94,13 +94,6 @@ public class FilesStepDefs {
 
     }
 
-    @When("user clicks three dots menu between the selected comment")
-    public void user_clicks_three_dots_menu_between_the_selected_comment() {
-
-    filesPage.selectedCommentText...
-
-    }
-
 
 
     @And("user enters new file name {string}")
@@ -127,7 +120,7 @@ public class FilesStepDefs {
 
         System.out.println("Gorme adiminda");
 
-        Assert.assertEquals(comment, filesPage.selectedComment(comment));
+       // Assert.assertEquals(comment, filesPage.selectedComment(comment));
 
 
         System.out.println("Kontrol etti");
@@ -150,6 +143,13 @@ public class FilesStepDefs {
         Assert.assertTrue(filesPage.selectedFavouriteFile(fileName).size()>0);
 
 
+    }
+
+    @When("user clicks three dots menu which is right side of {string} comment")
+    public void userClicksThreeDotsMenuWhichIsRightSideOfComment(String comment) {
+
+        filesPage.selectedCommentThreeDots(comment);
+        System.out.println("yorumun 3 noktasina tikladi");
     }
 }
 
