@@ -28,14 +28,14 @@ Feature: Files Options
 		And user clicks "Details"
 		And user clicks "Comments"
 		And user clicks "Comment TextBox"
-		And user enters comment "Hello, how are you today?"
+		And user enters comment "Hello"
 		And user clicks "Comment submit icon"
-		Then user should see written comment "Hello, how are you today?"
+		Then user should see written comment "Hello"
 
 	@SYMU-491
 	Scenario: Verify that user can delete the comments made on any file from the file details menu opened right side-ANC
 		Given the user on comments section
-		When user clicks three dots menu which is right side of "Hello, how are you today?" comment
+		When user clicks three dots menu which is right side of "Hello" comment
 		And user clicks "delete comment"
-		Then user should be able to delete "Hello, how are you today?" comment
+		Then user should be able to delete comment
 
