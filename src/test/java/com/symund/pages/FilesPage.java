@@ -71,7 +71,7 @@ public class FilesPage extends BasePage {
     @FindBy(xpath = "//*[@class='comment__message']")
     public WebElement comments;
 
-    @FindBy(xpath = "//*[@class='action active']")
+    @FindBy(xpath = "//*[@class='action active']//*[@class='action-button focusable']")
     public WebElement deleteComment;
 
     @FindBy(xpath = "//*[@class='action-item comment__actions'][1]")
@@ -138,7 +138,7 @@ public class FilesPage extends BasePage {
 
         List<WebElement> commentThreeDots;
 
-        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']/../..//*[@class='action-item comment__actions']"));
+        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']/../..//*[@class='icon action-item__menutoggle action-item__menutoggle--default-icon']"));
 
 
         return commentThreeDots;

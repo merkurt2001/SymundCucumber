@@ -140,7 +140,11 @@ public class FilesStepDefs {
     @When("user clicks three dots menu which is right side of {string} comment")
     public void userClicksThreeDotsMenuWhichIsRightSideOfComment(String comment) {
 
+        BrowserUtils.waitFor(2);
+
         filesPage.selectedCommentThreeDots(comment);
+        System.out.println("Yorumun uc noktasina tikladi");
+
 
     }
 
