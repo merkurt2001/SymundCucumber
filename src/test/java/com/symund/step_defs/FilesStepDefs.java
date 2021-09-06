@@ -13,6 +13,8 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 
+import static org.openqa.selenium.Keys.ENTER;
+
 public class FilesStepDefs {
     FilesPage filesPage = new FilesPage();
 
@@ -72,15 +74,6 @@ public class FilesStepDefs {
     }
 
 
-    @Then("user should be able to delete comment")
-    public void user_should_be_able_to_delete_comment() {
-
-        filesPage.deleteComment.click();
-        Assert.assertFalse(filesPage.comments.getText().contains("Hello") );
-
-    }
-
-
     @Given("the user on comments section")
     public void the_user_on_comments_section() {
 
@@ -99,8 +92,7 @@ public class FilesStepDefs {
     @And("user enters new file name {string}")
     public void userEntersNewFileName(String fileName) {
 
-        String oldFileName = filesPage.selectedFile.getText();
-        filesPage.fileNameText.sendKeys(fileName + Keys.ENTER);
+        filesPage.fileNameText.sendKeys(fileName + ENTER);
 
 
     }
@@ -149,7 +141,15 @@ public class FilesStepDefs {
     public void userClicksThreeDotsMenuWhichIsRightSideOfComment(String comment) {
 
         filesPage.selectedCommentThreeDots(comment);
-        System.out.println("yorumun 3 noktasina tikladi");
+
+    }
+
+    @Then("user should be able to delete {string} comment")
+    public void userShouldBeAbleToDeleteComment(String comment) {
+
+        Assert.assertFalse(filesPage.selectedCommentText(comment).isDisplayed());
+
+
     }
 }
 

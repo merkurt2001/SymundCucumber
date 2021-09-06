@@ -7,16 +7,16 @@ Feature: Files Options
 	@SYMU-488 @wip
 	Scenario: Verify that user can add any file to favorites from its own three dots menu-ANC
 		When user clicks "files module"
-		And user clicks three dots menu which is right side of "Readme.md" file
+		And user clicks three dots menu which is right side of "Notes" file
 		And user clicks "add to favorite"
 		And user clicks "favorites"
-		Then user should see "Readme.md" in favorites
+		Then user should see "Notes" in favorites
 
 
 	@SYMU-489
 	Scenario: Verify that user can rename any file from its own three dots menu - ANC
 		When user clicks "files module"
-		And user clicks three dots menu which is right side of "Readme.md" file
+		And user clicks three dots menu which is right side of "Notes" file
 		And user clicks "rename"
 		And user enters new file name "Renamed File"
 		Then user should see the file with updated name
@@ -24,7 +24,7 @@ Feature: Files Options
 	@SYMU-490
 	Scenario: Verify that user can put some comments on any file from the file details menu opened right side - ANC
 		When user clicks "files module"
-		And user clicks three dots menu which is right side of "Readme.md" file
+		And user clicks three dots menu which is right side of "Notes" file
 		And user clicks "Details"
 		And user clicks "Comments"
 		And user clicks "Comment TextBox"
@@ -37,5 +37,5 @@ Feature: Files Options
 		Given the user on comments section
 		When user clicks three dots menu which is right side of "Hello, how are you today?" comment
 		And user clicks "delete comment"
-		Then user should be able to delete comment
+		Then user should be able to delete "Hello, how are you today?" comment
 

@@ -134,12 +134,13 @@ public class FilesPage extends BasePage {
     }
 
 
-public void selectedCommentThreeDots(String comment){
+    public List<WebElement> selectedCommentThreeDots(String comment) {
 
         List<WebElement> commentThreeDots;
 
-        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment +"']/../..//*[@class='action-item comment__actions']"));
+        commentThreeDots = Driver.get().findElements(By.xpath("//*[@class='app-sidebar-tabs__content app-sidebar-tabs__content--multiple']//*[@class='comment comments__list']//*[@class='comment__message' and text()='" + comment + "']/../..//*[@class='action-item comment__actions']"));
 
-}
 
+        return commentThreeDots;
+    }
 }
